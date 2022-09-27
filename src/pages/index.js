@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "@mui/material/Button"
 
 export const Head = () =>
   <>
@@ -15,5 +16,5 @@ export const Head = () =>
   </>
 
 export default function Home() {
-  return <div>Hello world!</div>
+  return <Button variant="contained">Hello world!</Button>
 }
