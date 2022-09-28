@@ -4,7 +4,7 @@ import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
-import AdbIcon from "@mui/icons-material/Church"
+import ChurchIcon from "@mui/icons-material/Church"
 
 export const Head = () =>
   <>
@@ -20,7 +20,7 @@ export default function Home() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <ChurchIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h5"
             component="a"
@@ -36,7 +36,7 @@ export default function Home() {
             Greater Phoenix Chinese Christian Church
           </Typography>
 
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <ChurchIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h6"
             component="a"
