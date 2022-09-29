@@ -1,5 +1,7 @@
 import React from "react"
 
+import CssBaseline from "@mui/material/CssBaseline"
+
 import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
@@ -18,6 +20,7 @@ export const Head = () =>
 
 export default ({ children }) => (
     <>
+    <CssBaseline />
     <AppBar position="static">
         <Container maxWidth="xl">
             <Toolbar disableGutters>
