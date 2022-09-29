@@ -8,6 +8,7 @@ import ChurchIcon from "@mui/icons-material/Church"
 
 export const Head = () =>
     <>
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <link
         id="mui-roboto-font"
         rel="stylesheet"
