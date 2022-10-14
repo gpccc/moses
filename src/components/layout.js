@@ -18,7 +18,7 @@ export const Head = () =>
     />
     </>
 
-export default ({ children }) => (
+const Layout = ({ children }) => (
     <>
     <CssBaseline />
     <AppBar position="static">
@@ -61,3 +61,5 @@ export default ({ children }) => (
     {children}
     </>
 )
+
+export default Layout
