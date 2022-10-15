@@ -20,7 +20,7 @@
        transform="scale(0.1)"
        id="g12"><path
          id="path14"
-         style="fill:#f3e4cf;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none"
          d="M 0,0 H 4686.97 V 3945 H 0 V 0" /><path
          id="path16"
          style="fill:#7a3530;fill-opacity:1;fill-rule:evenodd;stroke:none"
