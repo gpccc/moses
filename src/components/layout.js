@@ -41,7 +41,8 @@ const Layout = ({ children }) => (
                 >
                     GPCCC
                 </Typography>
-                <Button href={onlineGivingLink} target="_blank" variant="contained" size="large" color="primary">Online Giving</Button>
+                <Button href={onlineGivingLink} target="_blank" variant="contained" size="large" color="primary" sx={{display: { xs: 'none', md: 'flex' }}}>Online Giving</Button>
+                <Button href={onlineGivingLink} target="_blank" variant="contained" size="small" color="primary" sx={{display: { xs: 'flex', md: 'none' }}}>Online Giving</Button>
             </Toolbar>
         </Container>
     </AppBar>
