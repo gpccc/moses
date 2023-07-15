@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const googleMapsKey = '';
+const isBrowser = typeof window !== "undefined"
 
 function ChurchMap({mapWidth, preferredLanguage}) {
     if (typeof mapWidth === 'undefined')  {
         mapWidth = 512;
     }
-    const mapHeight = (window.innerWidth >= 768) ? mapWidth / 1.618 : mapWidth;
+
+    const mapHeight = isBrowser && (window.innerWidth >= 768) ? mapWidth / 1.618 : mapWidth;
 
     let googleMapsLngCode = 'en-US';
     if (preferredLanguage === 'zf') {
