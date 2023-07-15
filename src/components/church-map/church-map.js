@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const googleMapsKey = '';
+// IMPORTANT: Make sure the Google Maps key is restricted
+// before check-in and deployment.
+const googleMapsKey = 'AIzaSyDO6tS0DiMS6WrkdeRv9ShpH5HAXJNTr3o';
 const isBrowser = typeof window !== "undefined"
 
 function ChurchMap({mapWidth, preferredLanguage}) {
