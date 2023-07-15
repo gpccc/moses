@@ -22,7 +22,7 @@ function ChurchMap({mapWidth, preferredLanguage}) {
         width={mapWidth}
         height={mapHeight}
         frameBorder="0" style={{border: 0}}
-        src={`https://www.google.com/maps/embed/v1/place?zoom=16&language=${googleMapsLngCode}&key=${googleMapsKey}`}
+        src={`https://www.google.com/maps/embed/v1/place?zoom=16&q=place_id:ChIJFflyL1YHK4cR57bArk8BXLM&language=${googleMapsLngCode}&key=${googleMapsKey}`}
         allowFullScreen>
     </iframe>
     );
