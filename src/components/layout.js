@@ -24,30 +24,13 @@ const Layout = ({ children }) => (
     <AppBar position="static">
         <Container maxWidth="xl">
             <Toolbar disableGutters>
-                <ChurchIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                <ChurchIcon sx={{ mr: 1 }} />
                 <Typography
                     variant="h5"
                     component="a"
                     href="/"
                     sx={{
                         mr: 2,
-                        display: { xs: 'none', md: 'flex' },
-                        fontWeight: 700,
-                        color: 'inherit',
-                        textDecoration: 'none',
-                    }}
-                >
-                    Greater Phoenix Chinese Christian Church
-                </Typography>
-
-                <ChurchIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                <Typography
-                    variant="h6"
-                    component="a"
-                    href="/"
-                    sx={{
-                        mr: 2,
-                        display: { xs: 'flex', md: 'none' },
                         fontWeight: 700,
                         color: 'inherit',
                         textDecoration: 'none',
