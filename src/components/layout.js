@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import ChurchIcon from "@mui/icons-material/Church"
 
+import AppFooter from "../views/app-footer"
+
 export const Head = () =>
     <>
     <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -47,6 +49,7 @@ const Layout = ({ children }) => (
         </Container>
     </AppBar>
     {children}
+    <AppFooter />
     </>
 )
 
