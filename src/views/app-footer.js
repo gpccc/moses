@@ -24,7 +24,7 @@ const AppFooter = () => (
     component="footer"
     sx={{ p: 4, display: 'flex', flexDirection: 'column', color: 'white', bgcolor: 'rgb(53, 54, 55)' }}
   >
-    <div style={{display: 'flex'}}>
+    <Box display="flex">
     <ChurchIcon sx={{ mr: 1 }} />
     <Typography
       variant="h5"
@@ -36,7 +36,7 @@ const AppFooter = () => (
     >
       GPCCC
     </Typography>
-    </div>
+    </Box>
 
     <Link target="_blank" rel="noreferrer" href="https://maps.google.com/?q=Greater Phoenix Chinese Christian Church, West Ray Road, Chandler, AZ" sx={{ color: 'white', pt: 2, pb: 1}}>
       <Box display="flex">
