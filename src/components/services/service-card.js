@@ -99,7 +99,8 @@ export default function ServiceCard({showSnackbar, preferredWorshipService, cant
 
     const isServiceCombinedWithMandarin = (youtubeVideoID) => youtubeVideoID !== "" && mandarinServices.some((service) => service.youtubeVideoID === youtubeVideoID);
     
-    if (!youTubeIframeAPIReady) {
+    const isBrowser = typeof window !== "undefined"
+    if (isBrowser && !youTubeIframeAPIReady) {
         if (window.YT) {
             setYouTubeIframeAPIReady(true);
         } else {
