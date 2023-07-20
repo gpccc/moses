@@ -1,18 +1,9 @@
 import * as React from 'react'
 import ReactMarkdown from 'react-markdown'
 
-import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
-
-const NewsItem = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  color: theme.palette.text.secondary,
-}))
-
 
 const ChurchNews = () => {
   // Markdown syntax: https://commonmark.org/help/
@@ -27,14 +18,14 @@ const ChurchNews = () => {
     "**Chinese School** starts Sun., July 30, 1:30pm. Register in person Sat., July 29, 1:30-3:00pm in Fellowship Hall or [online](http://gpccs.org/) (4 year olds up to adults). Classes include simplified & traditional Chinese, bilingual, and adult conversation. Extracurricular: go chess, chess, drawing, Judo, speech, and ping pong.",
   ]
   const newsItems = news.map((n, index) =>
-    <Grid xs={12} sm={6} md={4} lg={3} xl={2}>
-      <NewsItem><ReactMarkdown linkTarget="_blank">{`${index+1}. ${n}`}</ReactMarkdown></NewsItem>
+    <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
+      <Box><ReactMarkdown linkTarget="_blank">{`${index+1}. ${n}`}</ReactMarkdown></Box>
     </Grid>
   )
     
   return (
-    <Paper sx={{m: 2, p: 2}}>
-    <Grid container spacing={2}>
+    <Paper sx={{m: 2, pr: 2}}>
+    <Grid container rowSpacing={0} columnSpacing={2}>
       {newsItems}
     </Grid>
     </Paper>
