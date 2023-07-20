@@ -26,7 +26,7 @@ const Layout = ({ children }) => (
     <>
     <CssBaseline />
     <AppBar position="static" color="secondary">
-        <Container maxWidth="xl">
+        <Container maxWidth="false">
             <Toolbar disableGutters>
                 <ChurchIcon sx={{ mr: 1 }} />
                 <Typography
