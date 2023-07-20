@@ -24,7 +24,7 @@ const ChurchNews = () => {
   )
     
   return (
-    <Paper sx={{m: 2, pr: 2}}>
+    <Paper sx={{m: {xs:2, sm:3}, pr: 2}}>
     <Grid container rowSpacing={0} columnSpacing={2}>
       {newsItems}
     </Grid>
