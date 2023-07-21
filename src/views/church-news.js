@@ -11,6 +11,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 const ChurchNews = () => {
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+  const toLocaleDateStringSupportsLocales =
+    typeof Intl === "object" &&
+    !!Intl &&
+    typeof Intl.DateTimeFormat === "function"
+
   // Markdown syntax: https://commonmark.org/help/
   const churchNews = {
     "2023-07-16": [
@@ -38,6 +44,19 @@ const ChurchNews = () => {
     ]
   }
 
+  const newsDates = Object.keys(churchNews).map((newsDate, index) => {
+    const date = new Date(newsDate+"T00:00:00") //date-only is interpreted as UTC where date-time is interpreted as local time
+    const dateDisplay = toLocaleDateStringSupportsLocales
+      ?
+      date.toLocaleDateString("en-US", {
+        weekday: "long", month: "long", day: "numeric", year: "numeric"
+      })
+      :
+      date.toDateString()
+
+      return <MenuItem value={newsDate} key={index}>{dateDisplay}</MenuItem>
+  })
+
   const [week, setWeek] = React.useState("")
   const handleChange = (event) => {
     setWeek(event.target.value)
@@ -62,8 +81,7 @@ const ChurchNews = () => {
             label="Church news for"
             onChange={handleChange}
           >
-            <MenuItem value="2023-07-16">Sunday, July 16, 2023</MenuItem>
-            <MenuItem value="2022-09-21">Wednesday, September 21, 2022</MenuItem>
+            {newsDates}
           </Select>
         </FormControl>
 
