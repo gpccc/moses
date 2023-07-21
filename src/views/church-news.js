@@ -4,6 +4,11 @@ import ReactMarkdown from 'react-markdown'
 import Grid from '@mui/material/Unstable_Grid2'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
+import Container from '@mui/material/Container'
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const ChurchNews = () => {
   // Markdown syntax: https://commonmark.org/help/
@@ -33,18 +38,39 @@ const ChurchNews = () => {
     ]
   }
 
+  const [week, setWeek] = React.useState("")
+  const handleChange = (event) => {
+    setWeek(event.target.value)
+  }
+
   const news = churchNews["2022-09-21"]
   const newsItems = news.map((n, index) =>
     <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
       <Box><ReactMarkdown linkTarget="_blank">{`${index+1}. ${n}`}</ReactMarkdown></Box>
     </Grid>
   )
-    
+
   return (
-    <Paper sx={{m: {xs:2, sm:3}, pr: 2}}>
-    <Grid container rowSpacing={0} columnSpacing={2}>
-      {newsItems}
-    </Grid>
+    <Paper sx={{m: {xs:2, sm:3}, pt:2}}>
+      <Container maxWidth="false">
+        <FormControl sx={{ minWidth: 292 }} fullWidth={true}> {/* Width 292 is big enough for Wednesday, September 21, 2022 */}
+          <InputLabel id="church-news-label">Church news for</InputLabel>
+          <Select
+            labelId="church-news-label"
+            id="church-news-select"
+            value={week}
+            label="Church news for"
+            onChange={handleChange}
+          >
+            <MenuItem value="2023-07-16">Sunday, July 16, 2023</MenuItem>
+            <MenuItem value="2022-09-21">Wednesday, September 21, 2022</MenuItem>
+          </Select>
+        </FormControl>
+
+        <Grid container rowSpacing={0} columnSpacing={2}>
+          {newsItems}
+        </Grid>
+      </Container>
     </Paper>
   )
 }
