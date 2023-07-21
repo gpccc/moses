@@ -44,7 +44,8 @@ const ChurchNews = () => {
     ]
   }
 
-  const newsDates = Object.keys(churchNews).map((newsDate, index) => {
+  const dates = Object.keys(churchNews)
+  const newsDates = dates.map((newsDate, index) => {
     const date = new Date(newsDate+"T00:00:00") //date-only is interpreted as UTC where date-time is interpreted as local time
     const dateDisplay = toLocaleDateStringSupportsLocales
       ?
@@ -57,13 +58,13 @@ const ChurchNews = () => {
       return <MenuItem value={newsDate} key={index}>{dateDisplay}</MenuItem>
   })
 
-  const [week, setWeek] = React.useState("")
+  const mostRecentNewsDate = dates[0]
+  const [week, setWeek] = React.useState(mostRecentNewsDate)
   const handleChange = (event) => {
     setWeek(event.target.value)
   }
 
-  const news = churchNews["2022-09-21"]
-  const newsItems = news.map((n, index) =>
+  const newsItems = churchNews[week].map((n, index) =>
     <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
       <Box><ReactMarkdown linkTarget="_blank">{`${index+1}. ${n}`}</ReactMarkdown></Box>
     </Grid>
