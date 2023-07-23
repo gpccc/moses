@@ -35,7 +35,7 @@ const AppFooter = () => (
     </Typography>
     </Box>
 
-    <Box sx={{display: 'flex'}}>
+    <Box sx={{display: 'flex', flexDirection: {xs: 'column', sm: 'row'}}}>
     <Box sx={{display: 'flex', flexDirection: 'column'}}>
     <Link target="_blank" rel="noreferrer" href="https://maps.google.com/?q=Greater Phoenix Chinese Christian Church, West Ray Road, Chandler, AZ" color="inherit" underline="hover">
       <Box display="flex">
@@ -54,7 +54,7 @@ const AppFooter = () => (
     </Link>
     </Box>
 
-    <Box sx={{display: 'flex', flexDirection: 'column', ml: 8}}>
+    <Box sx={{display: 'flex', flexDirection: 'column', ml: {xs: 0, sm: 6}, mt: {xs: 2, sm: 0}}}>
     <Link href="#" color="inherit" underline="hover">
       Our belief and purpose
     </Link>
