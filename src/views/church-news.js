@@ -19,7 +19,7 @@ const ChurchNews = () => {
 
   // Markdown syntax: https://commonmark.org/help/
   const churchNews = {
-    "2023-07-22": [
+    "2023-07-23": [
       "**College Summer Hangout** Sundays, 6pm for dinner, *The Compelling Community* book study, and hangout. [Schedule and book PDF](https://docs.google.com/spreadsheets/u/0/d/1LBt5VU7scEmssBQvSBKXA077QnPAIBGmUT1GqgXZid8/htmlview#gid=0). [Email Keith](mailto:english.college@gpccc.org) for info.",
       "**Church Membership Class** is today, 1:30pm. [Email P. Larry](mailto:larrylee@gpccc.org) to register.",
       "**2024 Deacon Eligibility List**: We will be calling new deacons next year. Please check the eligibility list in the breezeway to see if you are listed (must be a member for at least 2 years to qualify).",
