@@ -20,7 +20,7 @@ const Copyright = () => (
 )
 
 const AppFooter = () => (
-  <Typography
+  <Box
     component="footer"
     sx={{ p: 4, display: 'flex', flexDirection: 'column', color: 'white', bgcolor: 'rgb(53, 54, 55)' }}
   >
@@ -38,7 +38,9 @@ const AppFooter = () => (
     </Typography>
     </Box>
 
-    <Link target="_blank" rel="noreferrer" href="https://maps.google.com/?q=Greater Phoenix Chinese Christian Church, West Ray Road, Chandler, AZ" color="inherit" underline="hover" sx={{ pt: 2, pb: 1}}>
+    <Box sx={{pt: 2, display: 'flex'}}>
+    <Box sx={{display: 'flex', flexDirection: 'column'}}>
+    <Link target="_blank" rel="noreferrer" href="https://maps.google.com/?q=Greater Phoenix Chinese Christian Church, West Ray Road, Chandler, AZ" color="inherit" underline="hover">
       <Box display="flex">
         <Box mr={1}><MapIcon fontSize="small" /></Box>
         Greater Phoenix Chinese Christian Church<br/>
@@ -60,11 +62,23 @@ const AppFooter = () => (
         contact@gpccc.org
       </Box>
     </Link>
+    </Box>
+
+    <Box sx={{display: 'flex', flexDirection: 'column', ml: 8}}>
+    <Link href="#" color="inherit" underline="hover">
+      Our belief and purpose
+    </Link>
+
+    <Link href="#" color="inherit" underline="hover">
+      Careers
+    </Link>
+    </Box>
+    </Box>
 
     <Typography variant="caption" color="inherit" underline="hover" sx={{ pt: 4 }}>
       <Copyright />
     </Typography>
-  </Typography>
+  </Box>
 )
 
 export default AppFooter
