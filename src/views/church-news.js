@@ -25,7 +25,7 @@ const ChurchNews = () => {
       "**2024 Deacon Eligibility List**: We will be calling new deacons next year. Please check the eligibility list in the breezeway to see if you are listed (must be a member for at least 2 years to qualify).",
       "**Prayer Meeting** is Wednesdays, 7:30-8:30pm (Zoom: 233 085 786; PW 007276). [Email P. Larry](mailto:larrylee@gpccc.org) for info.",
       "**AWANA** registration is open. AWANA begins Fri., Aug. 11, 7pm. Please [register](https://forms.gle/RLTdtJLBqGM5NvQN6) before Aug. 1 to get the discount.",
-      "**Crossroads Young Adults** Bowling is Sat., July 29, 4pm. Email [Eddie Kwan](edkwan88@hotmail.com) for details.",
+      "**Crossroads Young Adults** Bowling is Sat., July 29, 4pm. [Email Eddie Kwan](edkwan88@hotmail.com) for details.",
       "The **Chinese Pastoral Search Committee** is Elder Hsi-an Kwong, Sylvia Hay, Hank Huang, Pi Lin Liu, Esther Wong and P. Chienhua Chen. This pastor will lead the Mandarin and Cantonese ministries. For details or recommendations, [email Elder Kwong](mailto:MandarinPSC.2023@gpccc.org) or any PSC member.",
       "**Men/Women Sunday** is Aug. 6. Men meet in the sanctuary at 9:30am and women in the Youth Center. For 11:!5am GROW, men move to B207 and the ladies don’t move. Bobby and Angie Cox will be sharing.",
       "**Chinese School** starts Sun., July 30, 1:30pm. Register in person Sat., July 29, 1:30-3:00pm in Fellowship Hall or [online](http://gpccs.org/) (4 year olds up to adults). Classes include simplified & traditional Chinese, bilingual, and adult conversation. Extracurricular: go chess, chess, drawing, Judo, speech, and ping pong.",
