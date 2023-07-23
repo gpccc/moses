@@ -4,9 +4,6 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 import ChurchIcon from "@mui/icons-material/Church"
-import MapIcon from '@mui/icons-material/Map';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
 
 const Copyright = () => (
   <>
@@ -24,7 +21,7 @@ const AppFooter = () => (
     component="footer"
     sx={{ p: 4, display: 'flex', flexDirection: 'column', color: 'white', bgcolor: 'rgb(53, 54, 55)' }}
   >
-    <Box display="flex">
+    <Box display="flex" sx={{ pb: 3 }}>
     <ChurchIcon sx={{ mr: 1 }} />
     <Typography
       variant="h5"
@@ -38,29 +35,22 @@ const AppFooter = () => (
     </Typography>
     </Box>
 
-    <Box sx={{pt: 2, display: 'flex'}}>
+    <Box sx={{display: 'flex'}}>
     <Box sx={{display: 'flex', flexDirection: 'column'}}>
     <Link target="_blank" rel="noreferrer" href="https://maps.google.com/?q=Greater Phoenix Chinese Christian Church, West Ray Road, Chandler, AZ" color="inherit" underline="hover">
       <Box display="flex">
-        <Box mr={1}><MapIcon fontSize="small" /></Box>
         Greater Phoenix Chinese Christian Church<br/>
         890 West Ray Road<br/>
         Chandler, AZ 85225
       </Box>
     </Link>
 
-    <Link href="tel:+1-480-786-4977" color="inherit" underline="hover" sx={{ pb: 1}}>
-      <Box display="flex" alignItems="center">
-        <Box mr={1}><PhoneIcon fontSize="small" /></Box>
-        (480) 786-4977
-      </Box>
+    <Link href="tel:+1-480-786-4977" color="inherit" underline="hover">
+      (480) 786-4977
     </Link>
 
     <Link href="mailto:contact@gpccc.org" color="inherit" underline="hover" >
-      <Box display="flex" alignItems="center">
-        <Box mr={1}><EmailIcon fontSize="small" /></Box>
-        contact@gpccc.org
-      </Box>
+      contact@gpccc.org
     </Link>
     </Box>
 
