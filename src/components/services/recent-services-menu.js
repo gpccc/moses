@@ -48,6 +48,7 @@ function getServicesToShow(services) {
 
 function getServicesWithSeekPointsForDemo(services) {
     const videoIDsWithSeekPointsToDemo = [
+        'EWQ__H_85bE', 'uqmaE9JKGtc', // 9/27/20 and 10/4/2020 English
     ];
 
     let servicesToDemo = [];
