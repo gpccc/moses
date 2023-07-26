@@ -55,7 +55,7 @@ const AppFooter = () => (
     </Box>
 
     <Box sx={{display: 'flex', flexDirection: 'column', ml: {xs: 0, sm: 6}, mt: {xs: 2, sm: 0}}}>
-    <Link href="#" color="inherit" underline="hover">
+    <Link href="about-us" color="inherit" underline="hover">
       Our belief and purpose
     </Link>
 
