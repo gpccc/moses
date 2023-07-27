@@ -60,7 +60,7 @@ const AppFooter = () => (
     </Link>
 
     <Link href="#" color="inherit" underline="hover">
-      Careers
+      Employment opportunities
     </Link>
     </Box>
     </Box>
