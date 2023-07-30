@@ -19,6 +19,17 @@ const ChurchNews = () => {
 
   // Markdown syntax: https://commonmark.org/help/
   const churchNews = {
+    "2023-07-30": [
+      "**Men/Women Sunday** is Aug. 6. Men meet in the sanctuary at 9:30am and women in the Youth Center. For 11:!5am GROW, men move to B207 and the ladies don't move. Bobby and Angie Cox will be sharing.",
+      "**College Summer Hangout** Sundays, 6pm for dinner, *The Compelling Community* book study, and hangout. [Schedule and book PDF](https://docs.google.com/spreadsheets/u/0/d/1LBt5VU7scEmssBQvSBKXA077QnPAIBGmUT1GqgXZid8/htmlview#gid=0). [Email Keith](mailto:english.college@gpccc.org) for info.",
+      "**2024 Deacon Eligibility List**: We will be calling new deacons next year. Please check the eligibility list in the breezeway to see if you are listed (must be a member for at least 2 years to qualify).",
+      "**Prayer Meeting** is Wednesdays, 7:30-8:30pm (Zoom: 233 085 786; PW 007276). [Email P. Larry](mailto:larrylee@gpccc.org) for info.",
+      "**AWANA** registration is open. AWANA begins Fri., Aug. 11, 7pm. Please [register](https://forms.gle/RLTdtJLBqGM5NvQN6) before Aug. 1 to get the discount.",
+      "**AWANA teacher training** is Fri., Aug. 4, 7pm in the Sunday school office, B207/208 (TNT), B205 (Sparks), and D102 (Cubbies). Student classroom/council time/handbook time rule training will be in Fellowship Hall. Kids will watch a movie (superbook) after.",
+      "The **Chinese Pastoral Search Committee** is Elder Hsi-an Kwong, Sylvia Hay, Hank Huang, PiLin Liu, Esther Wong and P. Chienhua Chen. This pastor will lead the Mandarin and Cantonese ministries. For details or recommendations, [email Hsi-an](mailto:MandarinPSC.2023@gpccc.org) or any PSC member.",
+      "**Emmanuel Active Adult Bible Study** is Fri., Aug. 11, 7pm in church office 205. [Email Sheng Peng](mailto:sypeng123@yahoo.com) for info.",
+      "**Chinese School** starts today, 1:30pm. Register at the Chinese school office or [online](https://gpccs.org). [Email Meiling Chiang](mailto:meiling.chiang1@gmail.com) for details.",
+    ],
     "2023-07-23": [
       "**College Summer Hangout** Sundays, 6pm for dinner, *The Compelling Community* book study, and hangout. [Schedule and book PDF](https://docs.google.com/spreadsheets/u/0/d/1LBt5VU7scEmssBQvSBKXA077QnPAIBGmUT1GqgXZid8/htmlview#gid=0). [Email Keith](mailto:english.college@gpccc.org) for info.",
       "**Church Membership Class** is today, 1:30pm. [Email P. Larry](mailto:larrylee@gpccc.org) to register.",
