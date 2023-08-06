@@ -19,6 +19,16 @@ const ChurchNews = () => {
 
   // Markdown syntax: https://commonmark.org/help/
   const churchNews = {
+    "2023-08-06": [
+      "**Today is Men/Women Sunday**. Men meet in the sanctuary at 9:30am and women in the Youth Center. For 11:!5am GROW, men move to B207 and the ladies meet in the Youth Center. We thank Bobby and Angie Cox from GoTEN for sharing. Items from GoTEN's refugee ministry are available for sale in the Youth Center.",
+      "**Jane and Joni Li will be baptized today**. Ladies, please join the baptismal in the sanctuary at 10:30am after today's message.",
+      "**College Summer Hangout** Sundays, 6pm for dinner, *The Compelling Community* book study, and hangout. [Schedule and book PDF](https://docs.google.com/spreadsheets/u/0/d/1LBt5VU7scEmssBQvSBKXA077QnPAIBGmUT1GqgXZid8/htmlview#gid=0). [Email Keith](mailto:english.college@gpccc.org) for info.",
+      "**Prayer Meeting** is Wednesdays, 7:30-8:30pm (Zoom: 233 085 786; PW 007276). [Email P. Larry](mailto:larrylee@gpccc.org) for info.",
+      "**Emmanuel Active Adult Bible Study** is Fri., Aug. 11, 7pm in church office 205. [Email Sheng Peng](mailto:sypeng123@yahoo.com) for info.",
+      "**AWANA** registration is open. AWANA begins Fri., Aug. 11, 7pm. Please [register](https://forms.gle/RLTdtJLBqGM5NvQN6).",
+      "**Patchwork Sisters** ministry will host a women's breakfast on Sat, Aug. 26, 10am-1pm. Theme: Coram Deo. Speakers: Maria Wong, Karen Palmer, and Robin Stanton. Registration deadline is Aug. 20. $5/person.  To register, [email Amy Lee](mailto:amygmlee@yahoo.com).",
+    ],
+
     "2023-07-30": [
       "**Men/Women Sunday** is Aug. 6. Men meet in the sanctuary at 9:30am and women in the Youth Center. For 11:!5am GROW, men move to B207 and the ladies don't move. Bobby and Angie Cox will be sharing.",
       "**College Summer Hangout** Sundays, 6pm for dinner, *The Compelling Community* book study, and hangout. [Schedule and book PDF](https://docs.google.com/spreadsheets/u/0/d/1LBt5VU7scEmssBQvSBKXA077QnPAIBGmUT1GqgXZid8/htmlview#gid=0). [Email Keith](mailto:english.college@gpccc.org) for info.",
