@@ -20,7 +20,7 @@ const ChurchNews = () => {
   // Markdown syntax: https://commonmark.org/help/
   const churchNews = {
     "2023-08-13": [
-      "The church is moving to **electronic voting** with the aim of improving voting efficiency and saving manpower. Voting tests will be open for the next two weeks. Mock ballots will be sent by email and SMS.",
+      "The church is moving to **electronic voting** with the aim of improving voting efficiency and saving manpower. Voting tests will be open for the next two weeks. Mock ballots will be sent by email and SMS. The format is as follows:\n\n**Email from:** Greater Phoenix Chinese Christian Church <invitations@mail.electionbuddy.com>\n\nSubject: Vote now: Greater Phoenix Chinese Christian Church--Members Mock vote\n\n**Text (SMS) from:** (877) 225-8712\n\nGPCCC: Member Mock vote: VOTE Now - ebv.io/xxxx-xxxx-xxxx-xxxx",
       "**2023 Mission Conference** is Fri.-Sun., Sep. 15-17. Our theme is \“Proclaim His Name\” and our speaker is Brent Gambrell (Brent Gambrell Ministries). 30 Day Prayer for Mission Conference begins Sat. Aug, 19.",
       "**College Summer Hangout** Sundays, 6pm for dinner, *The Compelling Community* book study, and hangout. [Schedule and book PDF](https://docs.google.com/spreadsheets/u/0/d/1LBt5VU7scEmssBQvSBKXA077QnPAIBGmUT1GqgXZid8/htmlview#gid=0). [Email Keith](mailto:english.college@gpccc.org) for info.",
       "**Prayer Meeting** is Wednesdays, 7:30-8:30pm (Zoom: 233 085 786; PW 007276). [Email P. Larry](mailto:larrylee@gpccc.org) for info.",
