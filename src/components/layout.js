@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import ChurchIcon from "@mui/icons-material/Church"
 
+import VotingProgress from "../views/voting-progress"
 import AppFooter from "../views/app-footer"
 
 export const Head = () =>
@@ -26,6 +27,7 @@ const Layout = ({ children }) => (
     <>
     <CssBaseline />
     <AppBar position="static" color="secondary">
+        <VotingProgress />
         <Container maxWidth="false">
             <Toolbar disableGutters>
                 <ChurchIcon sx={{ mr: 1 }} />
