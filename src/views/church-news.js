@@ -126,7 +126,7 @@ const ChurchNews = () => {
   return (
     <Paper sx={{m: {xs:2, sm:3}, pt:2}}>
       <Container maxWidth="false">
-        <FormControl sx={{ minWidth: 292 }} fullWidth={true}> {/* Width 292 is big enough for Wednesday, September 21, 2022 */}
+        <FormControl fullWidth={true}>
           <InputLabel id="church-news-label">Church news for</InputLabel>
           <Select
             labelId="church-news-label"
