@@ -5,10 +5,12 @@ import Grid from '@mui/material/Unstable_Grid2'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import Container from '@mui/material/Container'
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
+
+import "../styles/church-news.css"
 
 const ChurchNews = () => {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
@@ -139,10 +141,10 @@ const ChurchNews = () => {
           </Select>
         </FormControl>
 
-        <Grid container rowSpacing={0} columnSpacing={2}>
+        <Grid id="churchNews" container rowSpacing={0} columnSpacing={2}>
           {newsItems}
         </Grid>
-      </Container>
+     </Container>
     </Paper>
   )
 }
