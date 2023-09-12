@@ -90,8 +90,8 @@ export default function ServiceCard({showSnackbar, preferredWorshipService, cant
 
         return (
             <Tabs value={activeTabValue} onChange={handleChange} variant="fullWidth" aria-label="Worship services">
-            <Tab label={t("Mandarin service")  + (isPlayingMandarinVideo ? " ▶" : "")} value={PreferredServiceEnum.MANDARIN} id="Mandarin-tab" aria-controls="Mandarin-tabpanel" />
-            <Tab label={t("Cantonese service") + (isPlayingCantoneseVideo ? " ▶" : "")} value={PreferredServiceEnum.CANTONESE} id="Cantonese-tab" aria-controls="Cantonese-tabpanel" />
+            <Tab label={t("华语崇拜")  + (isPlayingMandarinVideo ? " ▶" : "")} value={PreferredServiceEnum.MANDARIN} id="Mandarin-tab" aria-controls="Mandarin-tabpanel" />
+            <Tab label={t("粵語崇拜") + (isPlayingCantoneseVideo ? " ▶" : "")} value={PreferredServiceEnum.CANTONESE} id="Cantonese-tab" aria-controls="Cantonese-tabpanel" />
             <Tab label={t("English service") + (isPlayingEnglishVideo ? " ▶" : "")} value={PreferredServiceEnum.ENGLISH} id="English-tab" aria-controls="English-tabpanel" />l
             </Tabs>
         );
