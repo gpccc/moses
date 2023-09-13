@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Typography, CircularProgress, Tooltip, IconButton, InfoOutlinedIcon,
+import { Box, Typography, CircularProgress, Tooltip, IconButton,
     CardActions, CardActionArea, CardContent } from '@mui/material';
+
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 // import { useTranslation } from 'react-i18next';
 
