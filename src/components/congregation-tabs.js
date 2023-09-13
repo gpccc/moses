@@ -11,9 +11,9 @@ export default function CongregationTabs() {
 
     return (
         <Tabs value={value} onChange={handleChange} variant="fullWidth" aria-label="congregation tabs">
-            <Tab label="华语崇拜" id="Mandarin-tab" aria-controls="Mandarin-tabpanel" />
-            <Tab label="粵語崇拜" id="Cantonese-tab" aria-controls="Cantonese-tabpanel" />
-            <Tab label="English service" id="English-tab" aria-controls="English-tabpanel" />
+            <Tab label="华语部" id="Mandarin-tab" aria-controls="Mandarin-tabpanel" />
+            <Tab label="粵語部" id="Cantonese-tab" aria-controls="Cantonese-tabpanel" />
+            <Tab label="English Ministry" id="English-tab" aria-controls="English-tabpanel" />
         </Tabs>
     );
 }
