@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import ChurchIcon from "@mui/icons-material/Church"
 
+import CongregationTabs from "./congregation-tabs"
+
 import VotingProgress from "../views/voting-progress"
 import AppFooter from "../views/app-footer"
 
@@ -50,6 +52,7 @@ const Layout = ({ children }) => (
             </Toolbar>
         </Container>
     </AppBar>
+    <CongregationTabs />
     {children}
     <AppFooter />
     </>
