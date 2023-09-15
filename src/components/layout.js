@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import ChurchIcon from "@mui/icons-material/Church"
 
+import {Trans} from '@herob/gatsby-plugin-react-i18next'
+
 import CongregationTabs from "./congregation-tabs"
 
 import VotingProgress from "../views/voting-progress"
@@ -45,7 +47,7 @@ const Layout = ({ children }) => (
                         flexGrow: 1,
                     }}
                 >
-                    GPCCC
+                    <Trans>GPCCC</Trans>
                 </Typography>
                 <Button href={onlineGivingLink} target="_blank" variant="contained" size="large" color="primary" sx={{display: { xs: 'none', md: 'flex' }}}>Online Giving</Button>
                 <Button href={onlineGivingLink} target="_blank" variant="contained" size="small" color="primary" sx={{display: { xs: 'flex', md: 'none' }}}>Online Giving</Button>
