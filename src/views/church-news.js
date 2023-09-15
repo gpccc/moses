@@ -10,15 +10,17 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 
+import {useI18next} from '@herob/gatsby-plugin-react-i18next'
+
 import "../styles/church-news.css"
 
 import churchNewsEnglish from "../constants/church-news-english"
 import churchNewsCantonese from "../constants/church-news-cantonese"
 
 const wholeChurchNews = {
-  mandarin: {},
-  cantonese: churchNewsCantonese,
-  english: churchNewsEnglish
+  "zh": {},
+  "zf": churchNewsCantonese,
+  "en": churchNewsEnglish
 }
 
 const ChurchNews = () => {
@@ -29,21 +31,23 @@ const ChurchNews = () => {
     typeof Intl.DateTimeFormat === "function"
 
     // Markdown syntax: https://commonmark.org/help/
-    const churchNews = wholeChurchNews.cantonese
+
+    const {language} = useI18next()
+    const churchNews = wholeChurchNews[language]
 
     const dates = Object.keys(churchNews)
     const newsDates = dates.map((newsDate, index) => {
-    const date = new Date(newsDate+"T00:00:00") //date-only is interpreted as UTC where date-time is interpreted as local time
-    const dateDisplay = toLocaleDateStringSupportsLocales
-      ?
-      date.toLocaleDateString("en-US", {
-        weekday: "long", month: "long", day: "numeric", year: "numeric"
-      })
-      :
-      date.toDateString()
+      const date = new Date(newsDate+"T00:00:00") //date-only is interpreted as UTC where date-time is interpreted as local time
+      const dateDisplay = toLocaleDateStringSupportsLocales
+        ?
+        date.toLocaleDateString("en-US", {
+          weekday: "long", month: "long", day: "numeric", year: "numeric"
+        })
+        :
+        date.toDateString()
 
-      return <MenuItem value={newsDate} key={index}>{dateDisplay}</MenuItem>
-  })
+        return <MenuItem value={newsDate} key={index}>{dateDisplay}</MenuItem>
+    })
 
   const mostRecentNewsDate = dates[0]
   const [week, setWeek] = React.useState(mostRecentNewsDate)
