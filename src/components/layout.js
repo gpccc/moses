@@ -13,7 +13,7 @@ import {Trans} from '@herob/gatsby-plugin-react-i18next'
 
 import CongregationTabs from "./congregation-tabs"
 
-import VotingProgress from "../views/voting-progress"
+// import VotingProgress from "../views/voting-progress"
 import AppFooter from "../views/app-footer"
 
 export const Head = () =>
@@ -31,7 +31,7 @@ const Layout = ({ children }) => (
     <>
     <CssBaseline />
     <AppBar position="static" color="secondary">
-        <VotingProgress />
+        {/* <VotingProgress /> */}
         <Container maxWidth="false">
             <Toolbar disableGutters>
                 <ChurchIcon sx={{ mr: 1 }} />
