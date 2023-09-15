@@ -13,9 +13,12 @@ import Select from '@mui/material/Select'
 import "../styles/church-news.css"
 
 import churchNewsEnglish from "../constants/church-news-english"
+import churchNewsCantonese from "../constants/church-news-cantonese"
 
 const wholeChurchNews = {
-  english: churchNewsEnglish,
+  mandarin: {},
+  cantonese: churchNewsCantonese,
+  english: churchNewsEnglish
 }
 
 const ChurchNews = () => {
@@ -26,10 +29,10 @@ const ChurchNews = () => {
     typeof Intl.DateTimeFormat === "function"
 
     // Markdown syntax: https://commonmark.org/help/
-  const churchNews = wholeChurchNews.english
+    const churchNews = wholeChurchNews.cantonese
 
-  const dates = Object.keys(churchNews)
-  const newsDates = dates.map((newsDate, index) => {
+    const dates = Object.keys(churchNews)
+    const newsDates = dates.map((newsDate, index) => {
     const date = new Date(newsDate+"T00:00:00") //date-only is interpreted as UTC where date-time is interpreted as local time
     const dateDisplay = toLocaleDateStringSupportsLocales
       ?
