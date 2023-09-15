@@ -3,15 +3,18 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
+import {Trans} from '@herob/gatsby-plugin-react-i18next'
+
 import ChurchIcon from "@mui/icons-material/Church"
 
 const Copyright = () => (
   <>
-  {'Copyright ©'}
+  <Trans>Copyright</Trans>
+  {' ©'}
   {new Date().getFullYear()}
   {' '}
   <Link color="inherit" underline="hover" href="/">
-  Greater Phoenix Chinese Christian Church
+  <Trans>Greater Phoenix Chinese Christian Church</Trans>
   </Link>
   </>
 )
@@ -31,7 +34,7 @@ const AppFooter = () => (
         textDecoration: 'none',
       }}
     >
-      GPCCC
+      <Trans>GPCCC</Trans>
     </Typography>
     </Box>
 
@@ -39,7 +42,7 @@ const AppFooter = () => (
     <Box sx={{display: 'flex', flexDirection: 'column'}}>
     <Link target="_blank" rel="noreferrer" href="https://maps.google.com/?q=Greater Phoenix Chinese Christian Church, West Ray Road, Chandler, AZ" color="inherit" underline="hover">
       <Box display="flex">
-        Greater Phoenix Chinese Christian Church<br/>
+        <Trans>Greater Phoenix Chinese Christian Church</Trans><br/>
         890 West Ray Road<br/>
         Chandler, AZ 85225
       </Box>
@@ -56,11 +59,11 @@ const AppFooter = () => (
 
     <Box sx={{display: 'flex', flexDirection: 'column', ml: {xs: 0, sm: 6}, mt: {xs: 2, sm: 0}}}>
     <Link href="about-us" color="inherit" underline="hover">
-      Our belief and purpose
+      <Trans>Our belief and purpose</Trans>
     </Link>
 
     <Link href="#" color="inherit" underline="hover">
-      Employment opportunities
+      <Trans>Employment opportunities</Trans>
     </Link>
     </Box>
     </Box>
