@@ -9,8 +9,7 @@ import ChurchIcon from "@mui/icons-material/Church"
 
 const Copyright = () => (
   <>
-  <Trans>Copyright</Trans>
-  {' ©'}
+  {'Copyright ©'}
   {new Date().getFullYear()}
   {' '}
   <Link color="inherit" underline="hover" href="/">
