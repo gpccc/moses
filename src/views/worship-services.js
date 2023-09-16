@@ -11,7 +11,6 @@ const WorshipServices = () => (
     <Container component="section" sx={{ my: 4 }}>
       <ServiceCard
         showSnackbar={msg => console.info('snackbar', msg)}
-        preferredWorshipService="English"
         cantoneseServices={cantoneseServices}
         mandarinServices={mandarinServices}
         englishServices={englishServices}

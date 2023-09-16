@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card, Tabs, Tab, CardHeader, } from '@mui/material';
+import { Card } from '@mui/material';
 
 import ReactResizeDetector from 'react-resize-detector';
-
-// import { useTranslation } from 'react-i18next';
 
 import ServicePlayer  from './service-player';
 
@@ -32,69 +30,24 @@ const useStyles = makeStyles(theme => ({
 */
 
 function TabPanel(props) {
-    const { activeTabValue, tabValue, services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth, isServiceCombinedWithMandarin, ...other } = props;
+    const { tabValue, services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth, isServiceCombinedWithMandarin } = props;
 
     return (
-        <div
-        role="tabpanel"
-        hidden={activeTabValue !== tabValue}
-        id={`${tabValue}-tabpanel`}
-        aria-labelledby={`${tabValue}-tab`}
-        {...other}
-        >
         <ServicePlayer playerID={tabValue} services={services} showSnackbar={showSnackbar}
             isServiceCombinedWithMandarin={isServiceCombinedWithMandarin}
             youTubeIframeAPIReady={youTubeIframeAPIReady}
             onPlayPause={onPlayPause}
             cardWidth={cardWidth}
         />
-        </div>
     );
 }
 
-export default function ServiceCard({showSnackbar, preferredWorshipService, cantoneseServices, mandarinServices, englishServices}) {
+export default function ServiceCard({showSnackbar, cantoneseServices, mandarinServices, englishServices}) {
     // const classes = useStyles();
 
     const [youTubeIframeAPIReady, setYouTubeIframeAPIReady] = React.useState(false);
 
-    const [activeTabValue, setActiveTabValue] = React.useState(preferredWorshipService);
-    const [isPlayingCantoneseVideo, setPlayingCantoneseVideo] = React.useState(false);
-    const [isPlayingEnglishVideo, setPlayingEnglishVideo] = React.useState(false);
-    const [isPlayingMandarinVideo, setPlayingMandarinVideo] = React.useState(false);
-
-    const handleChange = (event, newValue) => {
-        setActiveTabValue(newValue);
-    };
-    
-    React.useEffect(
-        () => {
-            setActiveTabValue(preferredWorshipService);
-        }, [preferredWorshipService]
-    );
-
     const handlePlayPauseChange = (service, isPlaying) => {
-        if (service === PreferredServiceEnum.CANTONESE) {
-            setPlayingCantoneseVideo(isPlaying);
-        }
-        else if (service === PreferredServiceEnum.ENGLISH) {
-            setPlayingEnglishVideo(isPlaying);
-        }
-        else if (service === PreferredServiceEnum.MANDARIN) {
-            setPlayingMandarinVideo(isPlaying);
-        }
-    };
-
-    const tabs = () => {
-        // const { t } = useTranslation();
-        const t = s => s;
-
-        return (
-            <Tabs value={activeTabValue} onChange={handleChange} variant="fullWidth" aria-label="Worship services">
-            <Tab label={t("华语崇拜")  + (isPlayingMandarinVideo ? " ▶" : "")} value={PreferredServiceEnum.MANDARIN} id="Mandarin-tab" aria-controls="Mandarin-tabpanel" />
-            <Tab label={t("粵語崇拜") + (isPlayingCantoneseVideo ? " ▶" : "")} value={PreferredServiceEnum.CANTONESE} id="Cantonese-tab" aria-controls="Cantonese-tabpanel" />
-            <Tab label={t("English service") + (isPlayingEnglishVideo ? " ▶" : "")} value={PreferredServiceEnum.ENGLISH} id="English-tab" aria-controls="English-tabpanel" />l
-            </Tabs>
-        );
     };
 
     const isServiceCombinedWithMandarin = (youtubeVideoID) => youtubeVideoID !== "" && mandarinServices.some((service) => service.youtubeVideoID === youtubeVideoID);
@@ -118,17 +71,13 @@ export default function ServiceCard({showSnackbar, preferredWorshipService, cant
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
         <Card ref={targetRef}>
-            <CardHeader component={tabs} />
-            <TabPanel activeTabValue={activeTabValue} tabValue={PreferredServiceEnum.CANTONESE} services={cantoneseServices} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
-            <TabPanel activeTabValue={activeTabValue} tabValue={PreferredServiceEnum.ENGLISH} services={englishServices} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
-            <TabPanel activeTabValue={activeTabValue} tabValue={PreferredServiceEnum.MANDARIN} services={mandarinServices} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
+            <TabPanel tabValue={PreferredServiceEnum.ENGLISH} services={englishServices} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
         </Card>}
         </ReactResizeDetector>
     );
 }
 
 TabPanel.propTypes = {
-    activeTabValue: PropTypes.string.isRequired,
     tabValue: PropTypes.string.isRequired,
     services: PropTypes.arrayOf(ServiceVideoShape).isRequired,
     showSnackbar: PropTypes.func.isRequired,
@@ -140,7 +89,6 @@ TabPanel.propTypes = {
 
 ServiceCard.propTypes = {
     showSnackbar: PropTypes.func.isRequired,
-    preferredWorshipService: PropTypes.string.isRequired,
     mandarinServices: PropTypes.arrayOf(ServiceVideoShape).isRequired,
     cantoneseServices: PropTypes.arrayOf(ServiceVideoShape).isRequired,
     englishServices: PropTypes.arrayOf(ServiceVideoShape).isRequired,
