@@ -1,5 +1,17 @@
 const churchNewsEnglish = {
-    "2023-08-20": [
+  "2023-09-17": [
+    "**We thank Brent Gambrell for sharing with us this weekend. We have a combined GROW from 11:15-12:25pm in the Youth Center today.**",
+    "**Lunch with Enoch Chiang** in church office 203 from 12:45-2:00pm today. Bring your lunch and chat with him.",
+    "**Prayer Meeting** is Wednesdays, 7:30-8:30pm (Zoom: 233 085 786; PW 007276). [Email P. Larry](mailto:larrylee@gpccc.org) for info.",
+    "**College Bible Study** is on Wednesdays, 7:30-9:00pm at the GPCCC Student Center [(1333 E University Dr, Tempe 85288)](https://maps.google.com/?q=1333+E+University+Dr,+Tempe,+AZ+85288) near ASU Tempe Campus. If interested, please [email P. Chris](mailto:chris.sung@gpccc.org).",
+    "**Crossroads Young Adults Bible Study** is meeting Thursdays. [Email Eddie Kwan](mailto:edkwan88@hotmail.com) for info.",
+    "**GROW Teachers**. Our church is seeking to invite and train teachers. [Email Alan Gin](mailto:ag853f@gmail.com) or P. Larry for info.",
+    "**Reader's Circle** is meeting Fri., Sep. 29, 5:30-8:30pm at Phu & Henna's. They are reading _The Case for Faith_ by Lee Strobel. [Email Sheng Peng](mailto:sypeng123@yahoo.com) for info.",
+    "**Christmas Cantata** starts practicing Sun., Oct. 1, 2:30-3:30pm, in the sanctuary. [Email Sue Chiou](mailto:suechiou@gmail.com) for info.",
+    "**Church Membership Class** Sun., Oct. 1. Register with the church office.",
+  ],
+
+  "2023-08-20": [
       "The church is moving to **electronic voting** with the aim of improving voting efficiency and saving manpower. Voting tests will be open for the next two weeks. Mock ballots will be sent by email and SMS. The format is as follows:\n\n**Email from:** Greater Phoenix Chinese Christian Church <invitations@mail.electionbuddy.com>\n\nSubject: Vote now: Greater Phoenix Chinese Christian Church--Members Mock vote\n\n**Text (SMS) from:** (877) 225-8712\n\nGPCCC: Member Mock vote: VOTE Now - ebv.io/xxxx-xxxx-xxxx-xxxx",
       "**2023 Mission Conference** is Fri.-Sun., Sep. 15-17. Our theme is \"Proclaim His Name\" and our speaker is Brent Gambrell (Brent Gambrell Ministries). 30 Day Prayer for Mission Conference begins Sat. Aug. 19.",
       "**International Missions Potluck**, Sat., Sep. 16, 4:30–5:50pm. In the breezeway, grab a post-it with a food type on it and bring enough of your dish to feed five. This way, food from all our mission fields are represented.",
