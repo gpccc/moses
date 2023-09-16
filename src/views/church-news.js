@@ -30,13 +30,15 @@ const ChurchNews = () => {
     !!Intl &&
     typeof Intl.DateTimeFormat === "function"
 
-    // Markdown syntax: https://commonmark.org/help/
+  // Markdown syntax: https://commonmark.org/help/
 
-    const {language} = useI18next()
-    const churchNews = wholeChurchNews[language]
+  const {language} = useI18next()
+  const churchNews = wholeChurchNews[language]
 
-    const dates = Object.keys(churchNews)
-    const newsDates = dates.map((newsDate, index) => {
+  const dates = Object.keys(churchNews)
+  const newsDates = !dates
+    ? []
+    : dates.map((newsDate, index) => {
       const date = new Date(newsDate+"T00:00:00") //date-only is interpreted as UTC where date-time is interpreted as local time
       const dateDisplay = toLocaleDateStringSupportsLocales
         ?
@@ -49,22 +51,24 @@ const ChurchNews = () => {
         return <MenuItem value={newsDate} key={index}>{dateDisplay}</MenuItem>
     })
 
-  const mostRecentNewsDate = dates[0]
+  const mostRecentNewsDate = dates[0] ?? ""
   const [week, setWeek] = React.useState(mostRecentNewsDate)
   const handleChange = (event) => {
     setWeek(event.target.value)
   }
 
-  const newsItems = churchNews[week].map((n, index) =>
-    <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
-      <Box><ReactMarkdown linkTarget="_blank">{`${index+1}. ${n}`}</ReactMarkdown></Box>
-    </Grid>
-  )
+  const newsItems = week===""
+    ? []
+    : churchNews[week].map((n, index) =>
+        <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
+          <Box><ReactMarkdown linkTarget="_blank">{`${index+1}. ${n}`}</ReactMarkdown></Box>
+        </Grid>
+      )
 
   return (
     <Paper sx={{m: {xs:2, sm:3}, pt:2}}>
       <Container maxWidth="false">
-        <FormControl fullWidth={true}>
+        <FormControl fullWidth={true} sx={{pb: week==="" ? 2 : 0}}>
           <InputLabel id="church-news-label">Church news for</InputLabel>
           <Select
             labelId="church-news-label"
