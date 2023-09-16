@@ -14,11 +14,12 @@ import {useI18next} from '@herob/gatsby-plugin-react-i18next'
 
 import "../styles/church-news.css"
 
-import churchNewsEnglish from "../constants/church-news-english"
+import churchNewsMandarin from "../constants/church-news-mandarin"
 import churchNewsCantonese from "../constants/church-news-cantonese"
+import churchNewsEnglish from "../constants/church-news-english"
 
 const newsAndLocale = {
-  "zh": { news: {}, locale: "zh-CN" },
+  "zh": { news: churchNewsMandarin, locale: "zh-CN" },
   "zf": { news: churchNewsCantonese, locale: "zh-HK" },
   "en": { news: churchNewsEnglish, locale: "en-US" },
 }
