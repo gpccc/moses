@@ -17,10 +17,10 @@ import "../styles/church-news.css"
 import churchNewsEnglish from "../constants/church-news-english"
 import churchNewsCantonese from "../constants/church-news-cantonese"
 
-const wholeChurchNews = {
-  "zh": {},
-  "zf": churchNewsCantonese,
-  "en": churchNewsEnglish
+const newsAndLocale = {
+  "zh": { news: {}, locale: "zh-CN" },
+  "zf": { news: churchNewsCantonese, locale: "zh-HK" },
+  "en": { news: churchNewsEnglish, locale: "en-US" },
 }
 
 const ChurchNews = () => {
@@ -33,7 +33,7 @@ const ChurchNews = () => {
   // Markdown syntax: https://commonmark.org/help/
 
   const {language} = useI18next()
-  const churchNews = wholeChurchNews[language]
+  const churchNews = newsAndLocale[language].news
 
   const dates = Object.keys(churchNews)
   const newsDates = !dates
@@ -42,7 +42,7 @@ const ChurchNews = () => {
       const date = new Date(newsDate+"T00:00:00") //date-only is interpreted as UTC where date-time is interpreted as local time
       const dateDisplay = toLocaleDateStringSupportsLocales
         ?
-        date.toLocaleDateString("en-US", {
+        date.toLocaleDateString(newsAndLocale[language].locale, {
           weekday: "long", month: "long", day: "numeric", year: "numeric"
         })
         :
