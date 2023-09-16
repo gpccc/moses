@@ -33,7 +33,7 @@ const ChurchNews = () => {
 
   // Markdown syntax: https://commonmark.org/help/
 
-  const {language} = useI18next()
+  const {language, t} = useI18next()
   const churchNews = newsAndLocale[language].news
 
   const dates = Object.keys(churchNews)
@@ -70,12 +70,12 @@ const ChurchNews = () => {
     <Paper sx={{m: {xs:2, sm:3}, pt:2}}>
       <Container maxWidth="false">
         <FormControl fullWidth={true} sx={{pb: week==="" ? 2 : 0}}>
-          <InputLabel id="church-news-label">Church news for</InputLabel>
+          <InputLabel id="church-news-label">{t("Church news for")}</InputLabel>
           <Select
             labelId="church-news-label"
             id="church-news-select"
             value={week}
-            label="Church news for"
+            label={t("Church news for")}
             onChange={handleChange}
           >
             {newsDates}
