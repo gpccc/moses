@@ -30,10 +30,10 @@ const useStyles = makeStyles(theme => ({
 */
 
 function TabPanel(props) {
-    const { tabValue, services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth, isServiceCombinedWithMandarin } = props;
+    const { services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth, isServiceCombinedWithMandarin } = props;
 
     return (
-        <ServicePlayer playerID={tabValue} services={services} showSnackbar={showSnackbar}
+        <ServicePlayer services={services} showSnackbar={showSnackbar}
             isServiceCombinedWithMandarin={isServiceCombinedWithMandarin}
             youTubeIframeAPIReady={youTubeIframeAPIReady}
             onPlayPause={onPlayPause}
@@ -71,14 +71,13 @@ export default function ServiceCard({showSnackbar, cantoneseServices, mandarinSe
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
         <Card ref={targetRef}>
-            <TabPanel tabValue={PreferredServiceEnum.ENGLISH} services={englishServices} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
+            <TabPanel services={englishServices} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
         </Card>}
         </ReactResizeDetector>
     );
 }
 
 TabPanel.propTypes = {
-    tabValue: PropTypes.string.isRequired,
     services: PropTypes.arrayOf(ServiceVideoShape).isRequired,
     showSnackbar: PropTypes.func.isRequired,
     youTubeIframeAPIReady: PropTypes.bool.isRequired,

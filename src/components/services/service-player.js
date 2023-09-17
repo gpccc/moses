@@ -27,7 +27,7 @@ const calcYouTubePlayerHeight = (playerWidth) => (
     playerWidth * SERVICE_VIDEO_HEIGHT / SERVICE_VIDEO_WIDTH
 );
 
-export default function ServicePlayer({playerID, services, isServiceCombinedWithMandarin, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth}) {
+export default function ServicePlayer({services, isServiceCombinedWithMandarin, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth}) {
     // const { t } = useTranslation();
     const t = s=>s;
 
@@ -55,15 +55,11 @@ export default function ServicePlayer({playerID, services, isServiceCombinedWith
     const date = serviceToShow.date;
     const seekPoints = serviceToShow.seekPoints;
 
+    const playerID = "youTubePlayer"; // PreferredServiceEnum.ENGLISH;
     const isCantoneseService = (playerID === PreferredServiceEnum.CANTONESE);
     const isEnglishService = (playerID === PreferredServiceEnum.ENGLISH);
     const isCombinedService = isServiceCombinedWithMandarin(youtubeVideoID);
     const showCombinedServiceTooltip = (isCombinedService && (isCantoneseService || isEnglishService));
-
-    const onPlayerStateChange = event => {
-        const playing = event.data === window.YT.PlayerState.PLAYING;
-        onPlayPause(playerID, playing);
-    };
 
     React.useEffect(
         () => {
@@ -88,8 +84,13 @@ export default function ServicePlayer({playerID, services, isServiceCombinedWith
             } else {
                 youTubePlayerRef.current.setSize(width, height);
             }
-        }, [youTubePlayerRef, cardWidth, playerID, youTubeIframeAPIReady, youtubeVideoID, onPlayerStateChange]
+        }, [youTubePlayerRef, cardWidth, youTubeIframeAPIReady, youtubeVideoID]
     );
+
+    const onPlayerStateChange = event => {
+        const playing = event.data === window.YT.PlayerState.PLAYING;
+        onPlayPause(playerID, playing);
+    };
 
     const onPlayerReady = () => {
         setYouTubePlayerReady(true);
@@ -218,7 +219,6 @@ export default function ServicePlayer({playerID, services, isServiceCombinedWith
 }
 
 ServicePlayer.propTypes = {
-    playerID: PropTypes.string.isRequired,
     services: PropTypes.arrayOf(ServiceVideoShape).isRequired,
     isServiceCombinedWithMandarin: PropTypes.func.isRequired,
     showSnackbar: PropTypes.func.isRequired,
