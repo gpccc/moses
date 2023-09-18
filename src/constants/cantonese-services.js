@@ -1,6 +1,8 @@
 import SeekPointType from './seek-point-type';
 
 const cantoneseServices = [
+    { youtubeVideoID: "fU-O8G8LB7c", message: "傳揚主名的呼召 -- 路28:44-48", pastor: "王钦慈牧师", date: "2023-09-17T18:10:00Z", duration: "01:25:30", seekPoints: []},
+
     // https://www.youtube.com/channel/UCwwYzQ3Av9dfyk3mhi-hxuw
     { youtubeVideoID: "ntyMUdXntLU", message: "不是我，是圣灵！(林后3:1-11)", pastor: "Elder Albert Wong", date: "2020-10-18T18:10:00Z", duration: "01:29:14", seekPoints: [
         {time: "00:08:00", label: "Beginning", type: SeekPointType.BEGINNING},
