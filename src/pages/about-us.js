@@ -2,12 +2,12 @@ import React from "react"
 
 import Layout from "../components/layout"
 
-import OurBeliefPurpose from "../views/belief-purpose"
+import OurBeliefPurposeEnglish from "../views/belief-purpose-english"
 
 export default function AboutUs() {
   return (
     <Layout>
-      <OurBeliefPurpose />
+      <OurBeliefPurposeEnglish />
     </Layout>
  )
 }

@@ -5,7 +5,7 @@ import Container from '@mui/material/Container'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 
-const OurBeliefPurpose = () => (
+const OurBeliefPurposeEnglish = () => (
     <Container component="section" maxWidth="lg">
     <Paper sx={{my:2, py:2, px: {xs: 2, sm: 3, md: 4}}}>
         <Typography variant="h6" sx={{textTransform: 'uppercase'}}>About Us</Typography>
@@ -104,4 +104,4 @@ const OurBeliefPurpose = () => (
 )
 
 
-export default OurBeliefPurpose
+export default OurBeliefPurposeEnglish
