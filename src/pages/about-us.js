@@ -8,13 +8,14 @@ import { useI18next } from '@herob/gatsby-plugin-react-i18next'
 
 import OurBeliefPurposeEnglish from "../views/belief-purpose-english"
 import OurBeliefPurposeMandarin from "../views/belief-purpose-mandarin"
+import OurBeliefPurposeCantonese from "../views/belief-purpose-cantonese"
 
 export default function AboutUs() {
   const { i18n } = useI18next()
 
   return (
     <Layout>
-      { i18n.language==="en" ? <OurBeliefPurposeEnglish /> : <OurBeliefPurposeMandarin /> }
+      { i18n.language==="en" ? <OurBeliefPurposeEnglish /> : (i18n.language==="zf" ? <OurBeliefPurposeCantonese /> : <OurBeliefPurposeMandarin />) }
     </Layout>
  )
 }
