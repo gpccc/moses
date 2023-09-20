@@ -15,9 +15,9 @@ const OurBeliefPurposeMandarin = () => (
             </p>
         </Typography>
 
-        <Typography variant="h6" sx={{fontWeight: 'bold'}}>教會的歷史</Typography>
+        <Typography variant="h5" sx={{fontWeight: 'bold', pt: 3, pb: 2}}>教會的歷史</Typography>
         <Typography variant="body1">
-            <Typography sx={{fontWeight: 'bold', pt: 2}}>查經班時期</Typography>
+            <Typography sx={{fontWeight: 'bold'}}>查經班時期</Typography>
             <p>
             一九六八年一個來自香港的大學生Aleana 徐, 一個從台灣來的研究生汪美,
             一個大學圖書管理員楊愛華和他的先生武佩賢，在亞利桑納州立大學的校園內，
@@ -70,9 +70,9 @@ const OurBeliefPurposeMandarin = () => (
             </p>
         </Typography>
 
-        <Typography variant="h6" sx={{fontWeight: 'bold'}}>教會的使命</Typography>
+        <Typography variant="h5" sx={{fontWeight: 'bold', pt: 3, pb: 2}}>教會的使命</Typography>
         <Typography variant="body1">
-            <Typography sx={{fontWeight: 'bold', pt: 2}}>我們的宗旨</Typography>
+            <Typography sx={{fontWeight: 'bold'}}>我們的宗旨</Typography>
             <p>
             鳳城華人基督教會的宗旨是榮耀 神，為了達成這目標，我們將竭力完成 二大使命：
             </p>
@@ -113,7 +113,7 @@ const OurBeliefPurposeMandarin = () => (
             </div>
         </Typography>
 
-        <Typography variant="h6" sx={{fontWeight: 'bold', py: 2}}>教會的信仰宣言</Typography>
+        <Typography variant="h5" sx={{fontWeight: 'bold', pt: 5, pb: 2}}>教會的信仰宣言</Typography>
         <Typography variant="body1">
             <div>
             <Typography sx={{fontWeight: 'bold'}}>第一條　聖經論</Typography>
