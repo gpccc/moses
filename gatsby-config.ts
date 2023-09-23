@@ -12,6 +12,7 @@ const {languages, defaultLanguage} = require('./languages')
 const siteUrl = process.env.URL || 'https://gpccc.netlify.app/'
 
 module.exports = {
+  trailingSlash: 'always',
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
