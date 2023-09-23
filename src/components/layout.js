@@ -3,13 +3,14 @@ import React from "react"
 import CssBaseline from "@mui/material/CssBaseline"
 
 import AppBar from "@mui/material/AppBar"
+import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import ChurchIcon from "@mui/icons-material/Church"
 
-import {Trans} from '@herob/gatsby-plugin-react-i18next'
+import {Link as Linki18n, Trans} from '@herob/gatsby-plugin-react-i18next'
 
 import CongregationTabs from "./congregation-tabs"
 
@@ -35,20 +36,21 @@ const Layout = ({ children }) => (
         <Container maxWidth="false">
             <Toolbar disableGutters>
                 <ChurchIcon sx={{ mr: 1 }} />
+
+                <Box sx={{flexGrow: 1, mr: 2,}}>
+                <Linki18n to="/">
                 <Typography
                     variant="h5"
-                    component="a"
-                    href="/"
                     sx={{
-                        mr: 2,
                         fontWeight: 700,
-                        color: 'inherit',
-                        textDecoration: 'none',
-                        flexGrow: 1,
+                        color: 'white',
                     }}
                 >
                     <Trans>GPCCC</Trans>
                 </Typography>
+                </Linki18n>
+                </Box>
+
                 <Button href={onlineGivingLink} target="_blank" variant="contained" size="large" color="primary" sx={{display: { xs: 'none', md: 'flex' }}}>Online Giving</Button>
                 <Button href={onlineGivingLink} target="_blank" variant="contained" size="small" color="primary" sx={{display: { xs: 'flex', md: 'none' }}}>Online Giving</Button>
             </Toolbar>
