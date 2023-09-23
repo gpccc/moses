@@ -1,20 +1,24 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import { Link as Linki18n} from '@herob/gatsby-plugin-react-i18next'
 import Typography from '@mui/material/Typography';
 
 import {Trans} from '@herob/gatsby-plugin-react-i18next'
 
 import ChurchIcon from "@mui/icons-material/Church"
 
+// TODO: don't hard-code MUI class styles
+const muiLinkStyle = "MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-bvyohc-MuiTypography-root-MuiLink-root"
+
 const Copyright = () => (
   <>
   {'Copyright ©'}
   {new Date().getFullYear()}
   {' '}
-  <Link color="inherit" underline="hover" href="/">
+  <Linki18n to="/" className={muiLinkStyle}>
   <Trans>Greater Phoenix Chinese Christian Church</Trans>
-  </Link>
+  </Linki18n>
   </>
 )
 
@@ -57,9 +61,9 @@ const AppFooter = () => (
     </Box>
 
     <Box sx={{display: 'flex', flexDirection: 'column', ml: {xs: 0, sm: 6}, mt: {xs: 2, sm: 0}}}>
-    <Link href="/about-us/" color="inherit" underline="hover">
+    <Linki18n to="/about-us/" className={muiLinkStyle}>
       <Trans>Our belief and purpose</Trans>
-    </Link>
+    </Linki18n>
 
     <Link href="#" color="inherit" underline="hover">
       <Trans>Employment opportunities</Trans>
