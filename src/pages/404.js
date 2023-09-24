@@ -12,7 +12,7 @@ export default function PageNotFound(props) {
   const { t } = useI18next()
 
   return (
-    <Layout>
+    <Layout showCongregationTabs={false}>
         <h3>{t("Error 404: Page not found")}</h3>
         <p>{t("The_requested_link_url_is_broken", {url})}</p>
         <Button onClick={() => props.navigate(-1)}>{t("Go back")}</Button>
