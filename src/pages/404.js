@@ -1,5 +1,5 @@
 import React from "react"
-import {graphql} from 'gatsby'
+import {navigate, graphql} from 'gatsby'
 import Button from "@mui/material/Button"
 
 import Layout from "../components/layout"
@@ -15,7 +15,7 @@ export default function PageNotFound(props) {
     <Layout showCongregationTabs={false}>
         <h3>{t("Error 404: Page not found")}</h3>
         <p>{t("The_requested_link_url_is_broken", {url})}</p>
-        <Button onClick={() => props.navigate(-1)}>{t("Go back")}</Button>
+        <Button onClick={() => navigate(-1)}>{t("Go back")}</Button>
     </Layout>
  )
 }
