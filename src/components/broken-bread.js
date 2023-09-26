@@ -3,8 +3,8 @@ import React from "react"
 export const BrokenBread = () => (
   <svg
    viewBox="0 0 624.93335 526"
-   height="526"
-   width="624.93335"
+   height="157.8"
+   width="187.480005"
    xmlSpace="preserve"
    id="svg2">
     <defs id="defs6" />
