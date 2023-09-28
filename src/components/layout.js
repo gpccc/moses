@@ -38,7 +38,7 @@ const Layout = ({ children, showCongregationTabs = true }) => (
                 <ChurchIcon sx={{ mr: 1 }} />
 
                 <Box sx={{flexGrow: 1, mr: 2,}}>
-                <Linki18n to="/">
+                <Linki18n to="/" activeStyle={{ textDecoration: "none" }}>
                 <Typography
                     variant="h5"
                     sx={{
