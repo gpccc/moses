@@ -13,7 +13,7 @@ const Copyright = () => (
   {'Copyright ©'}
   {new Date().getFullYear()}
   {' '}
-  <Linki18n to="/">
+  <Linki18n to="/" activeStyle={{ textDecoration: "none" }}>
     <Typography
       sx={{
         color: 'white',
