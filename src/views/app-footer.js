@@ -13,7 +13,7 @@ const Copyright = () => (
   {'Copyright ©'}
   {new Date().getFullYear()}
   {' '}
-  <Linki18n to="/" activeStyle={{ textDecoration: "none" }}>
+  <Linki18n to="/" className="noUnderline">
     <Typography
       sx={{
         color: 'white',
@@ -65,7 +65,7 @@ const AppFooter = () => (
     </Box>
 
     <Box sx={{display: 'flex', flexDirection: 'column', ml: {xs: 0, sm: 6}, mt: {xs: 2, sm: 0}}}>
-    <Linki18n to="/about-us/">
+    <Linki18n to="/about-us/" className="noUnderline">
       <Typography
         sx={{
           color: 'white',

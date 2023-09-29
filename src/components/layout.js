@@ -17,6 +17,8 @@ import CongregationTabs from "./congregation-tabs"
 // import VotingProgress from "../views/voting-progress"
 import AppFooter from "../views/app-footer"
 
+import "./layout.css"
+
 export const Head = () =>
     <>
     <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -38,7 +40,7 @@ const Layout = ({ children, showCongregationTabs = true }) => (
                 <ChurchIcon sx={{ mr: 1 }} />
 
                 <Box sx={{flexGrow: 1, mr: 2,}}>
-                <Linki18n to="/" activeStyle={{ textDecoration: "none" }}>
+                <Linki18n to="/" className="noUnderline">
                 <Typography
                     variant="h5"
                     sx={{
