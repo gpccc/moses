@@ -12,8 +12,6 @@ import Select from '@mui/material/Select'
 
 import {useI18next} from '@herob/gatsby-plugin-react-i18next'
 
-import "../styles/church-news.css"
-
 import churchNewsMandarin from "../constants/church-news-mandarin"
 import churchNewsCantonese from "../constants/church-news-cantonese"
 import churchNewsEnglish from "../constants/church-news-english"

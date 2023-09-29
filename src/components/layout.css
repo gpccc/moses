@@ -1,3 +1,7 @@
 .noUnderline {
     text-decoration: none;
 }
+
+#churchNews p {
+    padding-left: 40px;
+}
