@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {Trans} from '@herob/gatsby-plugin-react-i18next'
+
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -98,7 +100,7 @@ export default function RecentServicesMenu({services, defaultServiceIndex, onSer
     return (
         <div>
             <Button size="small" color="primary" aria-controls="recent-services-menu" aria-haspopup="true" onClick={handleClick} disabled={!youTubePlayerReady}>
-                {t('Recent services')}
+                <Trans>Recent services</Trans>
             </Button>
             <Menu
                 id="recent-services-menu"
@@ -149,7 +151,7 @@ export default function RecentServicesMenu({services, defaultServiceIndex, onSer
                 }
 
                 <MenuItem key="OlderServices" onClick={() => handleOlderServicesItemClick()}>
-                    {t('Older services')}
+                    <Trans>Older services</Trans>
                 </MenuItem>
             </Menu>
         </div>

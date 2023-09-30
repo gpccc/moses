@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {Trans} from '@herob/gatsby-plugin-react-i18next'
+
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -48,7 +50,7 @@ export default function SeekToMenu({seekPoints, onSeekTo, youTubePlayerReady}) {
     return (
         <div>
             <Button size="small" color="primary" aria-controls="seek-to-menu" aria-haspopup="true" onClick={handleClick} disabled={seekPoints.length===0 || !youTubePlayerReady}>
-                {t('Seek to')}
+                <Trans>Seek to</Trans>
             </Button>
             <Menu
                 id="seek-to-menu"
