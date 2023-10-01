@@ -9,6 +9,8 @@ import ServicePlayer  from './service-player';
 
 import ServiceVideoShape from '../../constants/service-video-shape';
 
+import { useI18next } from '@herob/gatsby-plugin-react-i18next'
+
 // import { makeStyles } from '@material-ui/core/styles';
 
 import { SERVICE_CARD_MAX_WIDTH } from '../../constants/service-constants';
@@ -67,11 +69,18 @@ export default function ServiceCard({showSnackbar, cantoneseServices, mandarinSe
         }
     }
 
+    const { i18n } = useI18next()
+    let services = englishServices
+    if (i18n.language === "zf")
+        services = cantoneseServices
+    else if (i18n.language === "zh")
+        services = mandarinServices
+
     return (
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
         <Card ref={targetRef}>
-            <TabPanel services={englishServices} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
+            <TabPanel services={services} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
         </Card>}
         </ReactResizeDetector>
     );
