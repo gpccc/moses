@@ -15,8 +15,6 @@ import { useI18next } from '@herob/gatsby-plugin-react-i18next'
 
 import { SERVICE_CARD_MAX_WIDTH } from '../../constants/service-constants';
 
-import PreferredServiceEnum from '../../constants/preferred-service-enum';
-
 /*
 const useStyles = makeStyles(theme => ({
     root: {
@@ -32,11 +30,10 @@ const useStyles = makeStyles(theme => ({
 */
 
 function TabPanel(props) {
-    const { services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth, isServiceCombinedWithMandarin } = props;
+    const { services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth } = props;
 
     return (
         <ServicePlayer services={services} showSnackbar={showSnackbar}
-            isServiceCombinedWithMandarin={isServiceCombinedWithMandarin}
             youTubeIframeAPIReady={youTubeIframeAPIReady}
             onPlayPause={onPlayPause}
             cardWidth={cardWidth}
@@ -52,8 +49,6 @@ export default function ServiceCard({showSnackbar, cantoneseServices, mandarinSe
     const handlePlayPauseChange = (service, isPlaying) => {
     };
 
-    const isServiceCombinedWithMandarin = (youtubeVideoID) => youtubeVideoID !== "" && mandarinServices.some((service) => service.youtubeVideoID === youtubeVideoID);
-    
     const isBrowser = typeof window !== "undefined"
     if (isBrowser && !youTubeIframeAPIReady) {
         if (window.YT) {
@@ -80,7 +75,7 @@ export default function ServiceCard({showSnackbar, cantoneseServices, mandarinSe
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
         <Card ref={targetRef}>
-            <TabPanel services={services} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} isServiceCombinedWithMandarin={isServiceCombinedWithMandarin} />
+            <TabPanel services={services} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} />
         </Card>}
         </ReactResizeDetector>
     );
@@ -92,7 +87,6 @@ TabPanel.propTypes = {
     youTubeIframeAPIReady: PropTypes.bool.isRequired,
     onPlayPause: PropTypes.func.isRequired,
     cardWidth: PropTypes.number,
-    isServiceCombinedWithMandarin: PropTypes.func.isRequired,
 };
 
 ServiceCard.propTypes = {

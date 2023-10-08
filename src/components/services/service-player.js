@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Typography, CircularProgress, Tooltip, IconButton,
+import { Box, Typography, CircularProgress,
     CardActions, CardActionArea, CardContent } from '@mui/material';
-
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 // import { useTranslation } from 'react-i18next';
 
@@ -21,13 +19,12 @@ import DateTimeUtils from '../../modules/datetime-utils';
 import ServiceVideoUtils from '../../modules/service-videos-utils';
 
 import { SERVICE_CARD_MAX_WIDTH, SERVICE_VIDEO_WIDTH, SERVICE_VIDEO_HEIGHT } from '../../constants/service-constants';
-import PreferredServiceEnum from '../../constants/preferred-service-enum';
 
 const calcYouTubePlayerHeight = (playerWidth) => (
     playerWidth * SERVICE_VIDEO_HEIGHT / SERVICE_VIDEO_WIDTH
 );
 
-export default function ServicePlayer({services, isServiceCombinedWithMandarin, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth}) {
+export default function ServicePlayer({services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth}) {
     // const { t } = useTranslation();
     const t = s=>s;
 
@@ -56,10 +53,6 @@ export default function ServicePlayer({services, isServiceCombinedWithMandarin, 
     const seekPoints = serviceToShow.seekPoints;
 
     const playerID = "youTubePlayer"; // PreferredServiceEnum.ENGLISH;
-    const isCantoneseService = (playerID === PreferredServiceEnum.CANTONESE);
-    const isEnglishService = (playerID === PreferredServiceEnum.ENGLISH);
-    const isCombinedService = isServiceCombinedWithMandarin(youtubeVideoID);
-    const showCombinedServiceTooltip = (isCombinedService && (isCantoneseService || isEnglishService));
 
     React.useEffect(
         () => {
@@ -147,30 +140,10 @@ export default function ServicePlayer({services, isServiceCombinedWithMandarin, 
             ?
             <Typography gutterBottom variant="body1" component="p">
                 {t(message)}
-                {showCombinedServiceTooltip &&
-                <span>
-                &nbsp;
-                <Tooltip title={t((isCantoneseService ? "Cantonese" : "English") + " service combined with Mandarin service")} arrow enterTouchDelay={25}>
-                    <IconButton aria-label="info" size="small">
-                    <InfoOutlinedIcon />
-                    </IconButton>
-                </Tooltip>
-                </span>
-                }
             </Typography>
             :
             <Typography gutterBottom variant="body1" component="p">
                 {DateTimeUtils.longServiceDateDisplay({datetime: date, showTimeToo: isRepeatService})} {t("worship service")}
-                {showCombinedServiceTooltip &&
-                <span>
-                &nbsp;
-                <Tooltip title={t((isCantoneseService ? "Cantonese" : "English") + " service combined with Mandarin service")} arrow enterTouchDelay={25}>
-                    <IconButton aria-label="info" size="small">
-                    <InfoOutlinedIcon />
-                    </IconButton>
-                </Tooltip>
-                </span>
-                }
             </Typography>
             }
             {
@@ -220,7 +193,6 @@ export default function ServicePlayer({services, isServiceCombinedWithMandarin, 
 
 ServicePlayer.propTypes = {
     services: PropTypes.arrayOf(ServiceVideoShape).isRequired,
-    isServiceCombinedWithMandarin: PropTypes.func.isRequired,
     showSnackbar: PropTypes.func.isRequired,
     youTubeIframeAPIReady: PropTypes.bool.isRequired,
     onPlayPause: PropTypes.func.isRequired,
