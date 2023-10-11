@@ -48,7 +48,7 @@ export default function ServicePlayer({services, showSnackbar, youTubeIframeAPIR
 
     const youtubeVideoID = serviceToShow.youtubeVideoID;
     const message = serviceToShow.message;
-    const pastor = serviceToShow.pastor === "" ? "" : t(serviceToShow.pastor);
+    const pastor = serviceToShow.pastor;
     const date = serviceToShow.date;
     const seekPoints = serviceToShow.seekPoints;
 
@@ -139,7 +139,7 @@ export default function ServicePlayer({services, showSnackbar, youTubeIframeAPIR
             {message !== ""
             ?
             <Typography gutterBottom variant="body1" component="p">
-                {t(message)}
+                {message}
             </Typography>
             :
             <Typography gutterBottom variant="body1" component="p">
@@ -183,7 +183,7 @@ export default function ServicePlayer({services, showSnackbar, youTubeIframeAPIR
                 services={services}
                 defaultServiceIndex={defaultServiceToShowIndex}
                 onServiceSelect={onServiceSelect}
-                onOlderServicesSelect={() => showSnackbar(t('TODO: Go to a page listing all worship services'))}
+                onOlderServicesSelect={() => showSnackbar('TODO: Go to a page listing all worship services')}
                 youTubePlayerReady={youTubePlayerReady}
             />
         </CardActions>
