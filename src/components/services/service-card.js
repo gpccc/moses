@@ -30,11 +30,10 @@ const useStyles = makeStyles(theme => ({
 */
 
 function TabPanel(props) {
-    const { services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth } = props;
+    const { services, showSnackbar, onPlayPause, cardWidth } = props;
 
     return (
         <ServicePlayer services={services} showSnackbar={showSnackbar}
-            youTubeIframeAPIReady={youTubeIframeAPIReady}
             onPlayPause={onPlayPause}
             cardWidth={cardWidth}
         />
@@ -44,24 +43,16 @@ function TabPanel(props) {
 export default function ServiceCard({showSnackbar, cantoneseServices, mandarinServices, englishServices}) {
     // const classes = useStyles();
 
-    const [youTubeIframeAPIReady, setYouTubeIframeAPIReady] = React.useState(false);
-
     const handlePlayPauseChange = (service, isPlaying) => {
     };
 
     const isBrowser = typeof window !== "undefined"
-    if (isBrowser && !youTubeIframeAPIReady) {
-        if (window.YT) {
-            setYouTubeIframeAPIReady(true);
-        } else {
-            const tag = document.createElement('script');
-            tag.src = 'https://www.youtube.com/iframe_api';
+    if (isBrowser && !window.YT) {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
 
-            window.onYouTubeIframeAPIReady = () => setYouTubeIframeAPIReady(true);
-
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        }
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     }
 
     const { i18n } = useI18next()
@@ -75,7 +66,7 @@ export default function ServiceCard({showSnackbar, cantoneseServices, mandarinSe
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
         <Card ref={targetRef}>
-            <TabPanel services={services} showSnackbar={showSnackbar} youTubeIframeAPIReady={youTubeIframeAPIReady} onPlayPause={handlePlayPauseChange} cardWidth={width} />
+            <TabPanel services={services} showSnackbar={showSnackbar} onPlayPause={handlePlayPauseChange} cardWidth={width} />
         </Card>}
         </ReactResizeDetector>
     );
@@ -84,7 +75,6 @@ export default function ServiceCard({showSnackbar, cantoneseServices, mandarinSe
 TabPanel.propTypes = {
     services: PropTypes.arrayOf(ServiceVideoShape).isRequired,
     showSnackbar: PropTypes.func.isRequired,
-    youTubeIframeAPIReady: PropTypes.bool.isRequired,
     onPlayPause: PropTypes.func.isRequired,
     cardWidth: PropTypes.number,
 };

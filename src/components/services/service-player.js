@@ -24,9 +24,11 @@ const calcYouTubePlayerHeight = (playerWidth) => (
     playerWidth * SERVICE_VIDEO_HEIGHT / SERVICE_VIDEO_WIDTH
 );
 
-export default function ServicePlayer({services, showSnackbar, youTubeIframeAPIReady, onPlayPause, cardWidth}) {
+export default function ServicePlayer({services, showSnackbar, onPlayPause, cardWidth}) {
     // const { t } = useTranslation();
     const t = s=>s;
+
+    const youTubeIframeAPIReady = window.YT
 
     let defaultServiceToShowIndex = 0;
     const isDefaultServiceJointService = ServiceVideoUtils.isRepeatService(defaultServiceToShowIndex, services);
@@ -77,7 +79,7 @@ export default function ServicePlayer({services, showSnackbar, youTubeIframeAPIR
             } else {
                 youTubePlayerRef.current.setSize(width, height);
             }
-        }, [youTubePlayerRef, cardWidth, youTubeIframeAPIReady, youtubeVideoID]
+        }, [youTubePlayerRef, cardWidth, youtubeVideoID]
     );
 
     const onPlayerStateChange = event => {
@@ -194,7 +196,6 @@ export default function ServicePlayer({services, showSnackbar, youTubeIframeAPIR
 ServicePlayer.propTypes = {
     services: PropTypes.arrayOf(ServiceVideoShape).isRequired,
     showSnackbar: PropTypes.func.isRequired,
-    youTubeIframeAPIReady: PropTypes.bool.isRequired,
     onPlayPause: PropTypes.func.isRequired,
     cardWidth: PropTypes.number,
 };
