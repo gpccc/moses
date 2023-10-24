@@ -8,10 +8,7 @@ import Layout from "../components/layout"
 import WorshipServices from "../views/worship-services"
 import ChurchNews from "../views/church-news"
 
-import { useI18next } from '@herob/gatsby-plugin-react-i18next'
-
 export const Head = ({ pageContext }) => {
-  const { i18n } = useI18next()
   let pageTitle = "GPCCC: English"
   if (pageContext.language==="zh")
     pageTitle = "凰城华人基督教会: 华语部"
