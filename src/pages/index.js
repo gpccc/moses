@@ -1,6 +1,6 @@
 import React from "react"
 
-import {graphql} from 'gatsby'
+import {graphql, Script} from 'gatsby'
 
 import Layout from "../components/layout"
 
@@ -20,11 +20,15 @@ export const Head = ({ pageContext }) => {
 
 export default function Home() {
   return (
+    <>
     <Layout>
       <WorshipServices />
       <ChurchNews />
       {/* <ChurchMapCard /> */}
     </Layout>
+
+    <Script src="https://www.youtube.com/iframe_api" />
+    </>
  )
 }
 

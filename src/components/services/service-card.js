@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card } from '@mui/material';
+import { Box, Card, CircularProgress } from '@mui/material';
 
 import ReactResizeDetector from 'react-resize-detector';
 
@@ -31,12 +31,17 @@ const useStyles = makeStyles(theme => ({
 
 function TabPanel(props) {
     const { services, showSnackbar, onPlayPause, cardWidth } = props;
+    const youTubeIframeAPIReady = window.YT
 
-    return (
+    return (youTubeIframeAPIReady ?
         <ServicePlayer services={services} showSnackbar={showSnackbar}
             onPlayPause={onPlayPause}
             cardWidth={cardWidth}
         />
+        :
+        <Box display="flex" justifyContent="center" my={4}>
+            <CircularProgress />
+        </Box>
     );
 }
 
@@ -45,15 +50,6 @@ export default function ServiceCard({showSnackbar, cantoneseServices, mandarinSe
 
     const handlePlayPauseChange = (service, isPlaying) => {
     };
-
-    const isBrowser = typeof window !== "undefined"
-    if (isBrowser && !window.YT) {
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
 
     const { i18n } = useI18next()
     let services = englishServices

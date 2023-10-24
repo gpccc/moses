@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Typography, CircularProgress,
+import { Typography,
     CardActions, CardActionArea, CardContent } from '@mui/material';
 
 // import { useTranslation } from 'react-i18next';
@@ -27,8 +27,6 @@ const calcYouTubePlayerHeight = (playerWidth) => (
 export default function ServicePlayer({services, showSnackbar, onPlayPause, cardWidth}) {
     // const { t } = useTranslation();
     const t = s=>s;
-
-    const youTubeIframeAPIReady = window.YT
 
     let defaultServiceToShowIndex = 0;
     const isDefaultServiceJointService = ServiceVideoUtils.isRepeatService(defaultServiceToShowIndex, services);
@@ -58,9 +56,6 @@ export default function ServicePlayer({services, showSnackbar, onPlayPause, card
 
     React.useEffect(
         () => {
-            if (!youTubeIframeAPIReady)
-                return;
-
             const width = cardWidth || SERVICE_CARD_MAX_WIDTH;
             const height = calcYouTubePlayerHeight(width);
 
@@ -124,16 +119,7 @@ export default function ServicePlayer({services, showSnackbar, onPlayPause, card
 
     const liveStream = (ServiceVideoUtils.liveNow(date) || ServiceVideoUtils.willBeLive(date));
 
-    return !youTubeIframeAPIReady
-        ?
-        (
-            <Box display="flex" justifyContent="center" my={4}>
-                <CircularProgress />
-            </Box>
-        )
-        :
-        (
-        <div>
+    return <>
         <CardActionArea>
             <YouTubePlayer playerID={playerID} />
         </CardActionArea>
@@ -189,8 +175,7 @@ export default function ServicePlayer({services, showSnackbar, onPlayPause, card
                 youTubePlayerReady={youTubePlayerReady}
             />
         </CardActions>
-        </div>
-    );
+    </>
 }
 
 ServicePlayer.propTypes = {
