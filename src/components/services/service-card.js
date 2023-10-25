@@ -31,7 +31,13 @@ const useStyles = makeStyles(theme => ({
 
 function TabPanel(props) {
     const { services, showSnackbar, onPlayPause, cardWidth } = props;
-    const youTubeIframeAPIReady = window.YT
+
+    const youTubeApiLoaded = typeof(window.YT) !== 'undefined'
+    const [youTubeIframeAPIReady, setYouTubeIframeAPIReady] = React.useState(youTubeApiLoaded);
+    if (typeof(window.onYouTubeIframeAPIReady) === 'undefined') {
+        window.onYouTubeIframeAPIReady = () => setYouTubeIframeAPIReady(true);
+        console.info('YouTubeIframeAPIReady callback set up...')
+    }
 
     return (youTubeIframeAPIReady ?
         <ServicePlayer services={services} showSnackbar={showSnackbar}
