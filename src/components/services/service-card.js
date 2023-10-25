@@ -36,7 +36,6 @@ function TabPanel(props) {
     const [youTubeIframeAPIReady, setYouTubeIframeAPIReady] = React.useState(youTubeApiLoaded);
     if (typeof(window.onYouTubeIframeAPIReady) === 'undefined') {
         window.onYouTubeIframeAPIReady = () => setYouTubeIframeAPIReady(true);
-        console.info('YouTubeIframeAPIReady callback set up...')
     }
 
     return (youTubeIframeAPIReady ?

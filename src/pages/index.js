@@ -27,7 +27,6 @@ export default function Home() {
       {/* <ChurchMapCard /> */}
     </Layout>
 
-    <Script id="ytApiLoadedCb">{`console.info('Loading YouTube API...');`}</Script>
     <Script src="https://www.youtube.com/iframe_api" />
     </>
  )
