@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Typography, Card,
     CardActions, CardActionArea, CardContent } from '@mui/material';
 
-// import { useTranslation } from 'react-i18next';
+import {useI18next} from '@herob/gatsby-plugin-react-i18next'
 
 import ServiceVideoShape from '../../constants/service-video-shape';
 
@@ -25,8 +25,7 @@ const calcYouTubePlayerHeight = (playerWidth) => (
 );
 
 export default function ServicePlayer({services, showSnackbar, cardWidth, targetRef}) {
-    // const { t } = useTranslation();
-    const t = s=>s;
+    const { t } = useI18next()
 
     let defaultServiceToShowIndex = 0;
     const isDefaultServiceJointService = ServiceVideoUtils.isRepeatService(defaultServiceToShowIndex, services);
@@ -103,7 +102,7 @@ export default function ServicePlayer({services, showSnackbar, cardWidth, target
                 }, 1000);
             }
         } else {
-            showSnackbar(t('Unable to seek to') + ' ' + t(seekPoint.label));
+            showSnackbar(t("Unable_to_seek_to", {seekPoint: seekPoint.label}));
         }
     };
 
@@ -112,7 +111,7 @@ export default function ServicePlayer({services, showSnackbar, cardWidth, target
             setServiceToShow(service);
             youTubePlayerRef.current.cueVideoById(service.youtubeVideoID);
         } else {
-            showSnackbar(t('Unable to load service') + ' ' + t(service.message));
+            showSnackbar(t("Unable_to_load", {service: service.message}));
         }
     };
 
@@ -171,7 +170,7 @@ export default function ServicePlayer({services, showSnackbar, cardWidth, target
                 services={services}
                 defaultServiceIndex={defaultServiceToShowIndex}
                 onServiceSelect={onServiceSelect}
-                onOlderServicesSelect={() => showSnackbar('TODO: Go to a page listing all worship services')}
+                onOlderServicesSelect={() => showSnackbar(t("Not implemented"))}
                 youTubePlayerReady={youTubePlayerReady}
             />
         </CardActions>
