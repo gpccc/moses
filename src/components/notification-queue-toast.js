@@ -3,7 +3,7 @@ import Snackbar from '@mui/material/Snackbar'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 
-export default function NotificationToast() {
+export default function NotificationQueueToast() {
   const [snackPack, setSnackPack] = React.useState([{ msg: "Vote counts...", key: new Date().getTime() }, { msg: "Vote counts II...", key: 2 }])
   const [open, setOpen] = React.useState(false)
   const [message, setMessage] = React.useState(undefined)

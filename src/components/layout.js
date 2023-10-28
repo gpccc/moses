@@ -15,7 +15,7 @@ import {Link as Linki18n, Trans} from '@herob/gatsby-plugin-react-i18next'
 import CongregationTabs from "./congregation-tabs"
 
 // import VotingProgress from "../views/voting-progress"
-import NotificationToast from "./notification-toast"
+import NotificationQueueToast from "./notification-queue-toast"
 
 import AppFooter from "../views/app-footer"
 
@@ -37,7 +37,7 @@ const Layout = ({ children, showCongregationTabs = true }) => (
     <CssBaseline />
     <AppBar position="static" color="secondary">
         {/* <VotingProgress /> */}
-        { <NotificationToast />}
+        <NotificationQueueToast />
         <Container maxWidth="false">
             <Toolbar disableGutters>
                 <ChurchIcon sx={{ mr: 1 }} />
