@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Typography,
+import { Typography, Card,
     CardActions, CardActionArea, CardContent } from '@mui/material';
 
 // import { useTranslation } from 'react-i18next';
@@ -24,7 +24,7 @@ const calcYouTubePlayerHeight = (playerWidth) => (
     playerWidth * SERVICE_VIDEO_HEIGHT / SERVICE_VIDEO_WIDTH
 );
 
-export default function ServicePlayer({services, showSnackbar, onPlayPause, cardWidth}) {
+export default function ServicePlayer({services, showSnackbar, cardWidth, targetRef}) {
     // const { t } = useTranslation();
     const t = s=>s;
 
@@ -79,7 +79,6 @@ export default function ServicePlayer({services, showSnackbar, onPlayPause, card
 
     const onPlayerStateChange = event => {
         const playing = event.data === window.YT.PlayerState.PLAYING;
-        onPlayPause(playerID, playing);
     };
 
     const onPlayerReady = () => {
@@ -119,7 +118,8 @@ export default function ServicePlayer({services, showSnackbar, onPlayPause, card
 
     const liveStream = (ServiceVideoUtils.liveNow(date) || ServiceVideoUtils.willBeLive(date));
 
-    return <>
+    return (
+        <Card ref={targetRef}>
         <CardActionArea>
             <YouTubePlayer playerID={playerID} />
         </CardActionArea>
@@ -175,12 +175,13 @@ export default function ServicePlayer({services, showSnackbar, onPlayPause, card
                 youTubePlayerReady={youTubePlayerReady}
             />
         </CardActions>
-    </>
+        </Card>
+    )
 }
 
 ServicePlayer.propTypes = {
     services: PropTypes.arrayOf(ServiceVideoShape).isRequired,
     showSnackbar: PropTypes.func.isRequired,
-    onPlayPause: PropTypes.func.isRequired,
     cardWidth: PropTypes.number,
+    targetRef: PropTypes.object.isRequired,
 };

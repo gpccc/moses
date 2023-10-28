@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Card, CircularProgress, Container } from '@mui/material';
+import { Box, CircularProgress, Container } from '@mui/material';
 
 import ReactResizeDetector from 'react-resize-detector';
 
@@ -13,9 +13,6 @@ import mandarinServices from '../constants/mandarin-services'
 import cantoneseServices from '../constants/cantonese-services';
 
 export default function ServiceViewer() {
-    const handlePlayPauseChange = (service, isPlaying) => {
-    };
-
     const { i18n } = useI18next()
     let services = englishServices
     if (i18n.language === "zf")
@@ -36,12 +33,9 @@ export default function ServiceViewer() {
         ?
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
-        <Card ref={targetRef}>
-            <ServicePlayer services={services} showSnackbar={msg => console.info('snackbar', msg)}
-                onPlayPause={handlePlayPauseChange}
-                cardWidth={width}
-            />
-        </Card>}
+        <ServicePlayer services={services} showSnackbar={msg => console.info('snackbar', msg)}
+            cardWidth={width} targetRef={targetRef}
+        />}
         </ReactResizeDetector>
         :
         <Box display="flex" justifyContent="center" my={4}>
