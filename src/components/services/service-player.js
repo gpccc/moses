@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Typography, Card,
+import { Typography, Card, CardMedia,
     CardActions, CardActionArea, CardContent } from '@mui/material';
 
 import {useI18next} from '@herob/gatsby-plugin-react-i18next'
 
 import ServiceVideoShape from '../../constants/service-video-shape';
-
-import YouTubePlayer from './youtube-player';
 
 import ServiceDateDisplay from './service-date-display';
 
@@ -120,7 +118,12 @@ export default function ServicePlayer({services, showSnackbar, cardWidth, target
     return (
         <Card ref={targetRef}>
         <CardActionArea>
-            <YouTubePlayer playerID={playerID} />
+            <CardMedia
+                component="div"
+                frameBorder="0"
+                id={playerID}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            />
         </CardActionArea>
         <CardContent>
             {message !== ""
