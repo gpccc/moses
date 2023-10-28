@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Card, CircularProgress } from '@mui/material';
+import { Box, Card, CircularProgress, Container } from '@mui/material';
 
 import ReactResizeDetector from 'react-resize-detector';
 
@@ -10,6 +10,10 @@ import ServicePlayer  from './service-player';
 import ServiceVideoShape from '../../constants/service-video-shape';
 
 import { useI18next } from '@herob/gatsby-plugin-react-i18next'
+
+import englishServices from '../../constants/english-services'
+import mandarinServices from '../../constants/mandarin-services'
+import cantoneseServices from '../../constants/cantonese-services';
 
 // import { makeStyles } from '@material-ui/core/styles';
 
@@ -50,7 +54,7 @@ function TabPanel(props) {
     );
 }
 
-export default function ServiceCard({showSnackbar, cantoneseServices, mandarinServices, englishServices}) {
+export default function ServiceCard() {
     // const classes = useStyles();
 
     const handlePlayPauseChange = (service, isPlaying) => {
@@ -64,12 +68,14 @@ export default function ServiceCard({showSnackbar, cantoneseServices, mandarinSe
         services = mandarinServices
 
     return (
+        <Container component="section" sx={{ my: 4 }}>
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
         <Card ref={targetRef}>
-            <TabPanel services={services} showSnackbar={showSnackbar} onPlayPause={handlePlayPauseChange} cardWidth={width} />
+            <TabPanel services={services} showSnackbar={msg => console.info('snackbar', msg)} onPlayPause={handlePlayPauseChange} cardWidth={width} />
         </Card>}
         </ReactResizeDetector>
+        </Container>
     );
 }
 
@@ -78,11 +84,4 @@ TabPanel.propTypes = {
     showSnackbar: PropTypes.func.isRequired,
     onPlayPause: PropTypes.func.isRequired,
     cardWidth: PropTypes.number,
-};
-
-ServiceCard.propTypes = {
-    showSnackbar: PropTypes.func.isRequired,
-    mandarinServices: PropTypes.arrayOf(ServiceVideoShape).isRequired,
-    cantoneseServices: PropTypes.arrayOf(ServiceVideoShape).isRequired,
-    englishServices: PropTypes.arrayOf(ServiceVideoShape).isRequired,
 };
