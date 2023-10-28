@@ -4,35 +4,15 @@ import { Box, Card, CircularProgress, Container } from '@mui/material';
 
 import ReactResizeDetector from 'react-resize-detector';
 
-import ServicePlayer  from './service-player';
+import ServicePlayer  from '../components/services/service-player';
 
 import { useI18next } from '@herob/gatsby-plugin-react-i18next'
 
-import englishServices from '../../constants/english-services'
-import mandarinServices from '../../constants/mandarin-services'
-import cantoneseServices from '../../constants/cantonese-services';
+import englishServices from '../constants/english-services'
+import mandarinServices from '../constants/mandarin-services'
+import cantoneseServices from '../constants/cantonese-services';
 
-// import { makeStyles } from '@material-ui/core/styles';
-
-import { SERVICE_CARD_MAX_WIDTH } from '../../constants/service-constants';
-
-/*
-const useStyles = makeStyles(theme => ({
-    root: {
-        maxWidth: 640 + SERVICE_CARD_MAX_WIDTH - SERVICE_CARD_MAX_WIDTH, // SERVICE_CARD_MAX_WIDTH,
-    },
-    tab: {
-        lineHeight: 'normal',
-        [theme.breakpoints.up("sm")]: {
-            minWidth: 'inherit',
-        }
-    },
-}));
-*/
-
-export default function ServiceCard() {
-    // const classes = useStyles();
-
+export default function ServiceViewer() {
     const handlePlayPauseChange = (service, isPlaying) => {
     };
 
@@ -52,22 +32,22 @@ export default function ServiceCard() {
 
     return (
         <Container component="section" sx={{ my: 4 }}>
+        {youTubeIframeAPIReady
+        ?
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
         <Card ref={targetRef}>
-            {youTubeIframeAPIReady
-            ?
             <ServicePlayer services={services} showSnackbar={msg => console.info('snackbar', msg)}
                 onPlayPause={handlePlayPauseChange}
                 cardWidth={width}
             />
-            :
-            <Box display="flex" justifyContent="center" my={4}>
-                <CircularProgress />
-            </Box>
-            }
         </Card>}
         </ReactResizeDetector>
+        :
+        <Box display="flex" justifyContent="center" my={4}>
+            <CircularProgress />
+        </Box>
+        }
         </Container>
     );
 }

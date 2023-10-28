@@ -5,7 +5,7 @@ import {graphql, Script} from 'gatsby'
 import Layout from "../components/layout"
 
 // import ChurchMapCard from "../components/church-map/church-map-card"
-import ServiceCard from "../components/services/service-card"
+import ServiceViewer from "../views/service-viewer"
 import ChurchNews from "../views/church-news"
 
 export const Head = ({ pageContext }) => {
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
     <Layout>
-      <ServiceCard />
+      <ServiceViewer />
       <ChurchNews />
       {/* <ChurchMapCard /> */}
     </Layout>
