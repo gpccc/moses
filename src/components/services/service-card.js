@@ -1,13 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Box, Card, CircularProgress, Container } from '@mui/material';
 
 import ReactResizeDetector from 'react-resize-detector';
 
 import ServicePlayer  from './service-player';
-
-import ServiceVideoShape from '../../constants/service-video-shape';
 
 import { useI18next } from '@herob/gatsby-plugin-react-i18next'
 
@@ -33,27 +30,6 @@ const useStyles = makeStyles(theme => ({
 }));
 */
 
-function TabPanel(props) {
-    const { services, showSnackbar, onPlayPause, cardWidth } = props;
-
-    const youTubeApiLoaded = typeof(window.YT) !== 'undefined'
-    const [youTubeIframeAPIReady, setYouTubeIframeAPIReady] = React.useState(youTubeApiLoaded);
-    if (typeof(window.onYouTubeIframeAPIReady) === 'undefined') {
-        window.onYouTubeIframeAPIReady = () => setYouTubeIframeAPIReady(true);
-    }
-
-    return (youTubeIframeAPIReady ?
-        <ServicePlayer services={services} showSnackbar={showSnackbar}
-            onPlayPause={onPlayPause}
-            cardWidth={cardWidth}
-        />
-        :
-        <Box display="flex" justifyContent="center" my={4}>
-            <CircularProgress />
-        </Box>
-    );
-}
-
 export default function ServiceCard() {
     // const classes = useStyles();
 
@@ -67,21 +43,31 @@ export default function ServiceCard() {
     else if (i18n.language === "zh")
         services = mandarinServices
 
+    const youTubeApiLoaded = typeof(window.YT) !== 'undefined'
+
+    const [youTubeIframeAPIReady, setYouTubeIframeAPIReady] = React.useState(youTubeApiLoaded);
+    if (typeof(window.onYouTubeIframeAPIReady) === 'undefined') {
+        window.onYouTubeIframeAPIReady = () => setYouTubeIframeAPIReady(true);
+    }
+
     return (
         <Container component="section" sx={{ my: 4 }}>
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
         <Card ref={targetRef}>
-            <TabPanel services={services} showSnackbar={msg => console.info('snackbar', msg)} onPlayPause={handlePlayPauseChange} cardWidth={width} />
+            {youTubeIframeAPIReady
+            ?
+            <ServicePlayer services={services} showSnackbar={msg => console.info('snackbar', msg)}
+                onPlayPause={handlePlayPauseChange}
+                cardWidth={width}
+            />
+            :
+            <Box display="flex" justifyContent="center" my={4}>
+                <CircularProgress />
+            </Box>
+            }
         </Card>}
         </ReactResizeDetector>
         </Container>
     );
 }
-
-TabPanel.propTypes = {
-    services: PropTypes.arrayOf(ServiceVideoShape).isRequired,
-    showSnackbar: PropTypes.func.isRequired,
-    onPlayPause: PropTypes.func.isRequired,
-    cardWidth: PropTypes.number,
-};
