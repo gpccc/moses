@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Box, CircularProgress, Container } from '@mui/material';
 
@@ -12,7 +13,7 @@ import englishServices from '../constants/english-services'
 import mandarinServices from '../constants/mandarin-services'
 import cantoneseServices from '../constants/cantonese-services';
 
-export default function ServiceViewer() {
+export default function ServiceViewer({showSnackbar}) {
     const { i18n } = useI18next()
     let services = englishServices
     if (i18n.language === "zf")
@@ -33,7 +34,7 @@ export default function ServiceViewer() {
         ?
         <ReactResizeDetector handleHeight={false}>
         {({width, targetRef}) =>
-        <ServicePlayer services={services} showSnackbar={msg => console.info('snackbar', msg)}
+        <ServicePlayer services={services} showSnackbar={showSnackbar}
             cardWidth={width} targetRef={targetRef}
         />}
         </ReactResizeDetector>
@@ -44,4 +45,8 @@ export default function ServiceViewer() {
         }
         </Container>
     );
+}
+
+ServiceViewer.propTypes = {
+    showSnackbar: PropTypes.func,
 }
