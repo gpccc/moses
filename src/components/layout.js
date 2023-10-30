@@ -32,12 +32,15 @@ export const Head = () =>
     </>
 
 const onlineGivingLink = "http://gpccc.org/2020/05/12/support-gpccc-online-giving-%e6%94%af%e6%8c%81%e5%87%a4%e5%9f%8e%e6%95%99%e4%bc%9a-%e7%88%b1%e5%bf%83%e5%a5%89%e7%8c%ae/"
-const Layout = ({ children, showCongregationTabs = true }) => (
+const Layout = ({ children, showCongregationTabs = true }) => {
+    const {notificationQueueToast, showSnackbar} = NotificationQueueToast()
+
+    return (
     <>
     <CssBaseline />
     <AppBar position="static" color="secondary">
         {/* <VotingProgress /> */}
-        <NotificationQueueToast />
+        {notificationQueueToast}
         <Container maxWidth="false">
             <Toolbar disableGutters>
                 <ChurchIcon sx={{ mr: 1 }} />
@@ -65,6 +68,7 @@ const Layout = ({ children, showCongregationTabs = true }) => (
     {children}
     <AppFooter />
     </>
-)
+    )
+}
 
 export default Layout
