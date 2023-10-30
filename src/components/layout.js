@@ -35,6 +35,13 @@ const onlineGivingLink = "http://gpccc.org/2020/05/12/support-gpccc-online-givin
 const Layout = ({ children, showCongregationTabs = true }) => {
     const {notificationQueueToast, showSnackbar} = NotificationQueueToast()
 
+    const renderChildren = () =>
+        React.Children.map(children, (child) =>
+            React.cloneElement(child, {
+                showSnackbar,
+            })
+        )
+
     return (
     <>
     <CssBaseline />
@@ -65,7 +72,7 @@ const Layout = ({ children, showCongregationTabs = true }) => {
         </Container>
     </AppBar>
     {showCongregationTabs && <CongregationTabs />}
-    {children}
+    {renderChildren()}
     <AppFooter />
     </>
     )
