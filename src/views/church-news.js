@@ -60,7 +60,7 @@ const ChurchNews = () => {
     ? []
     : churchNews[week].map((n, index) =>
         <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
-          <Box><ReactMarkdown linkTarget="_blank">{`${index+1}. ${n}`}</ReactMarkdown></Box>
+          <Box><ReactMarkdown>{`${index+1}. ${n}`}</ReactMarkdown></Box>
         </Grid>
       )
 
