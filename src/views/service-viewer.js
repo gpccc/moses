@@ -21,6 +21,8 @@ function SanitizeServices(services, t) {
 }
 
 export default function ServiceViewer({showSnackbar}) {
+    const isBrowser = typeof window !== "undefined"
+
     const { i18n, t } = useI18next()
     let services = englishServices
     if (i18n.language === "zf")
@@ -29,10 +31,10 @@ export default function ServiceViewer({showSnackbar}) {
         services = mandarinServices
     SanitizeServices(services, t)
 
-    const youTubeApiLoaded = typeof(window.YT) !== 'undefined'
+    const youTubeApiLoaded = isBrowser && typeof(window.YT) !== 'undefined'
 
     const [youTubeIframeAPIReady, setYouTubeIframeAPIReady] = React.useState(youTubeApiLoaded);
-    if (typeof(window.onYouTubeIframeAPIReady) === 'undefined') {
+    if (isBrowser && typeof(window.onYouTubeIframeAPIReady) === 'undefined') {
         window.onYouTubeIframeAPIReady = () => setYouTubeIframeAPIReady(true);
     }
 
