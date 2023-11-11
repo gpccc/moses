@@ -111,25 +111,13 @@ export default function RecentServicesMenu({services, defaultServiceIndex, onSer
             >
                 {servicesToShow.map((service, index) => {
                     const jointService = ServiceVideoUtils.isRepeatService(index, servicesToShow);
+
+                    const message = (service.message ?? "").trim() || t("Message: TBD");
+                    const pastor = (service.pastor ?? "").trim() || t("Speaker: TBD");
                     
                     return (
                     <MenuItem key={"YT" + service.youtubeVideoID} selected={index === selectedIndex} onClick={() => handleServiceMenuItemClick(index, service.youtubeVideoID)}>
-                        {
-                        service.message !== "" && service.pastor !== "" &&
-                        <ListItemText primary={t(service.message)} secondary={t(service.pastor) + " · " + DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService})} />
-                        }
-                        {
-                        service.message !== "" && service.pastor === "" &&
-                        <ListItemText primary={t(service.message)} secondary={DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService})} />
-                        }
-                        {
-                        service.message === "" && service.pastor !== "" &&
-                        <ListItemText primary={DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService}) + " service"} secondary={t(service.pastor)} />
-                        }
-                        {
-                        service.message === "" && service.pastor === "" &&
-                        <ListItemText primary={DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService}) + " service"} />
-                        }
+                        <ListItemText primary={message} secondary={pastor + " · " + DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService})} />
                     </MenuItem>
                     );
                 })}
@@ -139,9 +127,13 @@ export default function RecentServicesMenu({services, defaultServiceIndex, onSer
                 {servicesWithSeekPoints.map((service, index) => {
                     const jointService = ServiceVideoUtils.isRepeatService(index, servicesWithSeekPoints);
                     index = index + servicesToShow.length;
+
+                    const message = (service.message ?? "").trim() || t("Message: TBD");
+                    const pastor = (service.pastor ?? "").trim() || t("Speaker: TBD");
+                    
                     return (
                         <MenuItem key={"YT" + service.youtubeVideoID} selected={index === selectedIndex} onClick={() => handleServiceMenuItemClick(index, service.youtubeVideoID)}>
-                            <ListItemText primary={t(service.message)} secondary={t(service.pastor) + " · " + DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService})} />
+                            <ListItemText primary={message} secondary={pastor + " · " + DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService})} />
                         </MenuItem>
                     );
                 })}
