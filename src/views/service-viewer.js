@@ -13,13 +13,21 @@ import englishServices from '../constants/english-services'
 import mandarinServices from '../constants/mandarin-services'
 import cantoneseServices from '../constants/cantonese-services';
 
+function SanitizeServices(services, t) {
+    services.forEach((service) => {
+        service.message = (service.message ?? "").trim() || t("Message: TBD");
+        service.pastor = (service.pastor ?? "").trim() || t("Speaker: TBD");
+    })
+}
+
 export default function ServiceViewer({showSnackbar}) {
-    const { i18n } = useI18next()
+    const { i18n, t } = useI18next()
     let services = englishServices
     if (i18n.language === "zf")
         services = cantoneseServices
     else if (i18n.language === "zh")
         services = mandarinServices
+    SanitizeServices(services, t)
 
     const youTubeApiLoaded = typeof(window.YT) !== 'undefined'
 

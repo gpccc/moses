@@ -12,8 +12,6 @@ import ListItemText from '@mui/material/ListItemText';
 
 import ServiceVideoShape from '../../constants/service-video-shape';
 
-import {useI18next} from '@herob/gatsby-plugin-react-i18next'
-
 import DateTimeUtils from '../../modules/datetime-utils';
 import ServiceVideoUtils from '../../modules/service-videos-utils';
 
@@ -49,8 +47,6 @@ function getServicesToShow(services) {
 }
 
 export default function RecentServicesMenu({services, defaultServiceIndex, onServiceSelect, onOlderServicesSelect, youTubePlayerReady}) {
-    const { t } = useI18next()
-
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [selectedIndex, setSelectedIndex] = React.useState(defaultServiceIndex);
 
@@ -94,12 +90,9 @@ export default function RecentServicesMenu({services, defaultServiceIndex, onSer
                 {servicesToShow.map((service, index) => {
                     const jointService = ServiceVideoUtils.isRepeatService(index, servicesToShow);
 
-                    const message = (service.message ?? "").trim() || t("Message: TBD");
-                    const pastor = (service.pastor ?? "").trim() || t("Speaker: TBD");
-                    
                     return (
                     <MenuItem key={"YT" + service.youtubeVideoID} selected={index === selectedIndex} onClick={() => handleServiceMenuItemClick(index, service.youtubeVideoID)}>
-                        <ListItemText primary={message} secondary={pastor + " · " + DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService})} />
+                        <ListItemText primary={service.message} secondary={service.pastor + " · " + DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService})} />
                     </MenuItem>
                     );
                 })}

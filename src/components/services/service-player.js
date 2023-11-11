@@ -44,8 +44,8 @@ export default function ServicePlayer({services, showSnackbar, cardWidth, target
     const youTubePlayerRef = React.useRef(null);
 
     const youtubeVideoID = serviceToShow.youtubeVideoID;
-    const message = (serviceToShow.message ?? "").trim() || t("Message: TBD");
-    const pastor = (serviceToShow.pastor ?? "").trim() || t("Speaker: TBD");
+    const message = serviceToShow.message
+    const pastor = serviceToShow.pastor
     const date = serviceToShow.date;
     const seekPoints = serviceToShow.seekPoints;
 
@@ -112,8 +112,6 @@ export default function ServicePlayer({services, showSnackbar, cardWidth, target
             showSnackbar(t("Unable_to_load", {service: service.message}));
         }
     };
-
-    const liveStream = (ServiceVideoUtils.liveNow(date) || ServiceVideoUtils.willBeLive(date));
 
     return (
         <Card ref={targetRef}>
