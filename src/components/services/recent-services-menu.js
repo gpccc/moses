@@ -48,22 +48,6 @@ function getServicesToShow(services) {
     return services.slice(0, numServicesToShow);
 }
 
-function getServicesWithSeekPointsForDemo(services) {
-    const videoIDsWithSeekPointsToDemo = [
-        'EWQ__H_85bE', 'uqmaE9JKGtc', // 9/27/20 and 10/4/2020 English
-    ];
-
-    let servicesToDemo = [];
-    videoIDsWithSeekPointsToDemo.forEach(videoID => {
-        const serviceToDemo = services.find(s => s.youtubeVideoID === videoID);
-        if (typeof serviceToDemo !== 'undefined')
-            servicesToDemo.push(serviceToDemo);
-    });
-
-    return servicesToDemo;
-
-}
-
 export default function RecentServicesMenu({services, defaultServiceIndex, onServiceSelect, onOlderServicesSelect, youTubePlayerReady}) {
     const { t } = useI18next()
 
@@ -94,7 +78,6 @@ export default function RecentServicesMenu({services, defaultServiceIndex, onSer
     };
 
     const servicesToShow = getServicesToShow(services);
-    const servicesWithSeekPoints = getServicesWithSeekPointsForDemo(services);
 
     return (
         <div>
@@ -122,24 +105,6 @@ export default function RecentServicesMenu({services, defaultServiceIndex, onSer
                 })}
 
                 <Divider />
-
-                {servicesWithSeekPoints.map((service, index) => {
-                    const jointService = ServiceVideoUtils.isRepeatService(index, servicesWithSeekPoints);
-                    index = index + servicesToShow.length;
-
-                    const message = (service.message ?? "").trim() || t("Message: TBD");
-                    const pastor = (service.pastor ?? "").trim() || t("Speaker: TBD");
-                    
-                    return (
-                        <MenuItem key={"YT" + service.youtubeVideoID} selected={index === selectedIndex} onClick={() => handleServiceMenuItemClick(index, service.youtubeVideoID)}>
-                            <ListItemText primary={message} secondary={pastor + " · " + DateTimeUtils.shortServiceDateTimeDisplay({datetime: service.date, showTimeToo: jointService})} />
-                        </MenuItem>
-                    );
-                })}
-
-                {servicesWithSeekPoints.length > 0 &&
-                    <Divider />
-                }
 
                 <MenuItem key="OlderServices" onClick={() => handleOlderServicesItemClick()}>
                     <Trans>Older services</Trans>
