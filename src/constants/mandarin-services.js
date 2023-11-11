@@ -3,7 +3,7 @@ import SeekPointType from './seek-point-type';
 const mandarinServices = [
     { youtubeVideoID: "fU-O8G8LB7c", message: "传扬主名的呼召 -- 路28:44-48", pastor: "王钦慈牧师", date: "2023-09-17T18:10:00Z", duration: "01:25:30", seekPoints: []},
 
-    { youtubeVideoID: "n-12Hj54hSM", message: "Message TBD", pastor: "Pastor TBD", date: "2023-07-16T18:10:00Z", duration: "01:21:35", seekPoints: []},
+    { youtubeVideoID: "n-12Hj54hSM", message: "", pastor: "", date: "2023-07-16T18:10:00Z", duration: "01:21:35", seekPoints: []},
 
     { youtubeVideoID: "m9YoDp3xFSQ", message: "犹太人的王 (约19:14-19)", pastor: "Rev. Semson Nip", date: "2020-11-01T18:10:00Z", duration: "01:17:30", seekPoints: [
         // {time: "00:00:00", label: "让赞美飞扬", type: SeekPointType.PRAISE_SONG},
