@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import ServiceVideoShape from '../../constants/service-video-shape';
 
-// import { useTranslation } from 'react-i18next';
+import {useI18next} from '@herob/gatsby-plugin-react-i18next'
 
 import DateTimeUtils from '../../modules/datetime-utils';
 import ServiceVideoUtils from '../../modules/service-videos-utils';
@@ -65,8 +65,7 @@ function getServicesWithSeekPointsForDemo(services) {
 }
 
 export default function RecentServicesMenu({services, defaultServiceIndex, onServiceSelect, onOlderServicesSelect, youTubePlayerReady}) {
-    // const { t } = useTranslation();
-    const t = s=>s
+    const { t } = useI18next()
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [selectedIndex, setSelectedIndex] = React.useState(defaultServiceIndex);
