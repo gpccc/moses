@@ -44,8 +44,8 @@ export default function ServicePlayer({services, showSnackbar, cardWidth, target
     const youTubePlayerRef = React.useRef(null);
 
     const youtubeVideoID = serviceToShow.youtubeVideoID;
-    const message = serviceToShow.message;
-    const pastor = serviceToShow.pastor;
+    const message = (serviceToShow.message ?? "").trim() || t("Message: TBD");
+    const pastor = (serviceToShow.pastor ?? "").trim() || t("Speaker: TBD");
     const date = serviceToShow.date;
     const seekPoints = serviceToShow.seekPoints;
 
@@ -126,46 +126,12 @@ export default function ServicePlayer({services, showSnackbar, cardWidth, target
             />
         </CardActionArea>
         <CardContent>
-            {message !== ""
-            ?
             <Typography gutterBottom variant="body1" component="p">
                 {message}
             </Typography>
-            :
-            <Typography gutterBottom variant="body1" component="p">
-                {DateTimeUtils.longServiceDateDisplay({datetime: date, showTimeToo: isRepeatService})} {t("worship service")}
-            </Typography>
-            }
-            {
-            message !== "" && pastor !== "" &&
             <Typography variant="body2" color="textSecondary" component="p">
                 {pastor} &middot; <ServiceDateDisplay serviceStartDateTime={date} showTimeToo={isRepeatService} />
             </Typography>
-            }
-            {
-            message !== "" && pastor === "" && 
-            <Typography variant="body2" color="textSecondary" component="p">
-                <ServiceDateDisplay serviceStartDateTime={date} showTimeToo={isRepeatService} />
-            </Typography>
-            }
-            {
-            message === "" && pastor !== "" && !liveStream &&
-            <Typography variant="body2" color="textSecondary" component="p">
-                {pastor}
-            </Typography>
-            }
-            {
-            message === "" && pastor !== "" && liveStream &&
-            <Typography variant="body2" color="textSecondary" component="p">
-                {pastor} &middot; <ServiceDateDisplay serviceStartDateTime={date} showTimeToo={isRepeatService} />
-            </Typography>
-            }
-            {
-            message === "" && pastor === "" && liveStream &&
-            <Typography variant="body2" color="textSecondary" component="p">
-                <ServiceDateDisplay serviceStartDateTime={date} showTimeToo={isRepeatService} />
-            </Typography>
-            }
         </CardContent>
         <CardActions>
             <SeekToMenu seekPoints={seekPoints} onSeekTo={onSeekTo} youTubePlayerReady={youTubePlayerReady} />
