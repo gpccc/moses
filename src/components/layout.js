@@ -13,6 +13,7 @@ import ChurchIcon from "@mui/icons-material/Church"
 import {Link as Linki18n, Trans} from '@herob/gatsby-plugin-react-i18next'
 
 import CongregationTabs from "./congregation-tabs"
+import NavigationDropdownMenu from "./navigation-dropdown-menu"
 
 // import VotingProgress from "../views/voting-progress"
 import NotificationQueueToast from "./notification-queue-toast"
@@ -68,6 +69,8 @@ const Layout = ({ children, showCongregationTabs = true }) => {
 
                 <Button href={onlineGivingLink} target="_blank" variant="contained" size="large" color="primary" sx={{display: { xs: 'none', md: 'flex' }}}><Trans>Online Giving</Trans></Button>
                 <Button href={onlineGivingLink} target="_blank" variant="contained" size="small" color="primary" sx={{display: { xs: 'flex', md: 'none' }}}><Trans>Online Giving</Trans></Button>
+
+                <NavigationDropdownMenu />
             </Toolbar>
         </Container>
     </AppBar>
