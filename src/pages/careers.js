@@ -12,6 +12,7 @@ import { useI18next } from '@herob/gatsby-plugin-react-i18next'
 
 import CareersEnglish from '../constants/careers-english'
 import CareersMandarin from '../constants/careers-mandarin'
+import CareersCantonese from '../constants/careers-cantonese'
 
 export default function Careers() {
   const { i18n } = useI18next()
@@ -20,7 +21,7 @@ export default function Careers() {
     <Layout>
       <Container component="section" maxWidth="lg">
       <Paper sx={{my:2, py:2, px: {xs: 2, sm: 3, md: 4}}}>
-      <ReactMarkdown>{ i18n.language==="en" ? CareersEnglish : (i18n.language==="zf" ? "" : CareersMandarin) }</ReactMarkdown>
+      <ReactMarkdown>{ i18n.language==="en" ? CareersEnglish : (i18n.language==="zf" ? CareersCantonese : CareersMandarin) }</ReactMarkdown>
       </Paper>
       </Container>
     </Layout>
