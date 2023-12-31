@@ -76,9 +76,16 @@ const AppFooter = () => (
       </Typography>
     </Linki18n>
 
-    <Link href="#" color="inherit" underline="hover">
+    <Linki18n to="/careers/" className="noUnderline">
+      <Typography
+        sx={{
+          color: 'white',
+          '&:hover': { textDecoration: 'underline' },
+        }}
+      >
       <Trans>Employment opportunities</Trans>
-    </Link>
+      </Typography>
+    </Linki18n>
     </Box>
     </Box>
 
