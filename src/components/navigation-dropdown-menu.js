@@ -36,7 +36,7 @@ export default function NavigationDropdownMenu() {
         }}
       >
         <MenuItem onClick={handleClose}><Trans>Live stream</Trans></MenuItem>
-        <MenuItem onClick={handleClose} divider="true"><Trans>Church news</Trans></MenuItem>
+        <MenuItem onClick={handleClose} divider={true}><Trans>Church news</Trans></MenuItem>
         <MenuItem onClick={handleClose} component={Link} to="/about-us/"><Trans>About us</Trans></MenuItem>
         <MenuItem onClick={handleClose}><Trans>Employment opportunities</Trans></MenuItem>
       </Menu>
