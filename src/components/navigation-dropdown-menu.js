@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from '@herob/gatsby-plugin-react-i18next'
+import { Link, Trans } from '@herob/gatsby-plugin-react-i18next'
 
 export default function NavigationDropdownMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,10 +35,10 @@ export default function NavigationDropdownMenu() {
           'aria-labelledby': 'menu-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Live stream</MenuItem>
-        <MenuItem onClick={handleClose} divider="true">Church news</MenuItem>
-        <MenuItem onClick={handleClose} component={Link} to="/about-us/">About us</MenuItem>
-        <MenuItem onClick={handleClose}>Employment opportunities</MenuItem>
+        <MenuItem onClick={handleClose}><Trans>Live stream</Trans></MenuItem>
+        <MenuItem onClick={handleClose} divider="true"><Trans>Church news</Trans></MenuItem>
+        <MenuItem onClick={handleClose} component={Link} to="/about-us/"><Trans>About us</Trans></MenuItem>
+        <MenuItem onClick={handleClose}><Trans>Employment opportunities</Trans></MenuItem>
       </Menu>
     </div>
   );
