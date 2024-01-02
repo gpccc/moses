@@ -3,6 +3,7 @@ import React from "react"
 import {graphql, Script} from 'gatsby'
 
 import Layout from "../components/layout"
+import CommonHead from "../components/common-head"
 
 // import ChurchMapCard from "../components/church-map/church-map-card"
 import ServiceViewer from "../views/service-viewer"
@@ -15,7 +16,10 @@ export const Head = ({ pageContext }) => {
   else if (pageContext.language==="zf")
     pageTitle = "凰城華人基督教會: 粵語部"
 
-  return <title>{pageTitle}</title>
+  return <>
+    <title>{pageTitle}</title>
+    <CommonHead />
+  </>
 }
 
 export default function Home() {

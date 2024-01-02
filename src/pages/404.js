@@ -3,10 +3,15 @@ import {navigate, graphql} from 'gatsby'
 import {Box, Button, Typography} from "@mui/material/"
 
 import Layout from "../components/layout"
+import CommonHead from "../components/common-head"
 
 import {useI18next} from '@herob/gatsby-plugin-react-i18next'
 
 import {BrokenBread} from "../components/broken-bread"
+
+export const Head = () => (
+  <CommonHead />
+)
 
 export default function PageNotFound(props) {
   const url = props.location.pathname

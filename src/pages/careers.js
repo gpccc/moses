@@ -7,12 +7,17 @@ import Paper from '@mui/material/Paper'
 import {graphql} from 'gatsby'
 
 import Layout from "../components/layout"
+import CommonHead from "../components/common-head"
 
 import { useI18next } from '@herob/gatsby-plugin-react-i18next'
 
 import CareersEnglish from '../constants/careers-english'
 import CareersMandarin from '../constants/careers-mandarin'
 import CareersCantonese from '../constants/careers-cantonese'
+
+export const Head = () => (
+  <CommonHead />
+)
 
 export default function Careers() {
   const { i18n } = useI18next()

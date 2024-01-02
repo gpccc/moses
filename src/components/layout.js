@@ -22,16 +22,6 @@ import AppFooter from "../views/app-footer"
 
 import "./layout.css"
 
-export const Head = () =>
-    <>
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <link
-        id="mui-roboto-font"
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    />
-    </>
-
 const onlineGivingLink = "http://gpccc.org/2020/05/12/support-gpccc-online-giving-%e6%94%af%e6%8c%81%e5%87%a4%e5%9f%8e%e6%95%99%e4%bc%9a-%e7%88%b1%e5%bf%83%e5%a5%89%e7%8c%ae/"
 const Layout = ({ children, showCongregationTabs = true }) => {
     const {notificationQueueToast, showSnackbar} = NotificationQueueToast()
